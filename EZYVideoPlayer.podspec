@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'EZYVideoPlayer'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of EZYVideoPlayer.'
+  s.summary          = 'EZYVideoPlayer helps you to create a HLS video player without writing a single line of code.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  `EZYVideoPlayer will do all the heavy lifting that we required to create the HLS video player. It has all the basic and advanced functionality that a modern video player has. Just drag and drop UIView and inhirite it from EZYVideoPlayer this is all that we need to do.`
                        DESC
 
   s.homepage         = 'https://github.com/shashankpali/EZYVideoPlayer'
