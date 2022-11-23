@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
    s.screenshots     = 'https://user-images.githubusercontent.com/11850361/203582368-0cd2c369-3408-4e47-b859-9364ffbc030d.png'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Shashank Pali' => 'shank.pali@gmail.com' }
-  s.source           = { :git => 'https://github.com/shashankpali/EZYVideoPlayer.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/shashankpali/EZYVideoPlayer.git', :tag => s.version }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '14.0'
