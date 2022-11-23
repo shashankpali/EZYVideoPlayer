@@ -1,0 +1,6 @@
+framework module EZYVideoPlayer {
+  umbrella header "EZYVideoPlayer-umbrella.h"
+
+  export *
+  module * { export * }
+}
