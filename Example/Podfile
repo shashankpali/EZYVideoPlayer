@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'EZYVideoPlayer_Example' do
+  pod 'EZYVideoPlayer', :path => '../'
+
+  target 'EZYVideoPlayer_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
