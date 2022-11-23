@@ -1,6 +1,6 @@
 # EZYVideoPlayer
 
-[![CI Status](https://img.shields.io/travis/Shashank Pali/EZYVideoPlayer.svg?style=flat)](https://travis-ci.org/Shashank Pali/EZYVideoPlayer)
+[![CI Status](https://img.shields.io/travis/shashankpali/EZYVideoPlayer.svg?style=flat)](https://travis-ci.org/shashankpali/EZYVideoPlayer)
 [![Version](https://img.shields.io/cocoapods/v/EZYVideoPlayer.svg?style=flat)](https://cocoapods.org/pods/EZYVideoPlayer)
 [![License](https://img.shields.io/cocoapods/l/EZYVideoPlayer.svg?style=flat)](https://cocoapods.org/pods/EZYVideoPlayer)
 [![Platform](https://img.shields.io/cocoapods/p/EZYVideoPlayer.svg?style=flat)](https://cocoapods.org/pods/EZYVideoPlayer)
@@ -22,7 +22,7 @@ pod 'EZYVideoPlayer'
 
 ## Author
 
-Shashank Pali, shank.pali@gmail.com
+Shashank Pali
 
 ## License
 
