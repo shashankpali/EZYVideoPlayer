@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import EZYVideoPlayer
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var playerView: EZYVideoPlayer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
