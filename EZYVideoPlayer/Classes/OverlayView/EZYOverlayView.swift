@@ -9,7 +9,7 @@ import UIKit
 import AVFoundation
 
 protocol EZYOverlayProtocol: EZYInteractionProtocol {
-    func setup(on view: UIView, withPlayer: AVPlayer?)
+    func setup(on view: UIView, withPlayer: AVPlayer?, andTitle: String)
     func keepVisible(_ visible:Bool)
 }
 
@@ -17,8 +17,8 @@ internal final class EZYOverlayView: UIView, EZYOverlayProtocol {
     
     var model: EZYOverlayViewModelProtocol?
     
-    func setup(on view: UIView, withPlayer: AVPlayer?) {
-        self.backgroundColor = UIColor(white: 0, alpha: 0.35)
+    func setup(on view: UIView, withPlayer: AVPlayer?, andTitle: String) {
+        self.backgroundColor = UIColor(white: 0, alpha: 0.5)
         view.addSubview(self)
         
         self.translatesAutoresizingMaskIntoConstraints = false
@@ -36,7 +36,7 @@ internal final class EZYOverlayView: UIView, EZYOverlayProtocol {
         bottomView.addMenu()
         bottomView.delegate = model
         
-        var topView = EZYTopView.setup(on: self)
+        var topView = EZYTopView.setup(on: self, withTitle: andTitle)
         topView.observeOrientation()
         topView.delegate = model
     }

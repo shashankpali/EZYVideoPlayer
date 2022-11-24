@@ -10,7 +10,7 @@ import UIKit
 protocol EZYTopViewProtocol {
     var delegate: EZYInteractionProtocol? { get set }
     
-    static func setup(on view: UIView) -> EZYTopViewProtocol
+    static func setup(on view: UIView, withTitle: String?) -> EZYTopViewProtocol
     func observeOrientation()
 }
 
@@ -21,7 +21,7 @@ internal final class EZYTopView: UIView, EZYTopViewProtocol {
     var isLandscape = false
     var delegate: EZYInteractionProtocol?
     
-    static func setup(on view: UIView) -> EZYTopViewProtocol {
+    static func setup(on view: UIView, withTitle: String?) -> EZYTopViewProtocol {
         
         let topView = EZYTopView.instantiate(withOwner: nil)
         view.addSubview(topView)
@@ -31,7 +31,7 @@ internal final class EZYTopView: UIView, EZYTopViewProtocol {
         topView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         topView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
-        topView.titleLabel.text = "my name is shashank"
+        topView.titleLabel.text = withTitle
         
         return topView
     }

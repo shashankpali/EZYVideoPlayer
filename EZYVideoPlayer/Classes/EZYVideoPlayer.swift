@@ -17,6 +17,7 @@ public protocol EZYVideoPlayerProtocol {
 
 @IBDesignable public class EZYVideoPlayer: UIView {
     
+    @IBInspectable var title: String = "Video title will be showen here"
     @IBInspectable var videoURL: String = "http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8"
     
     private var avPlayer: AVPlayer?
@@ -47,7 +48,7 @@ public protocol EZYVideoPlayerProtocol {
         layer.addSublayer(avPlayerLayer!)
     }
     
-    private func setupComponents() { overlayView.setup(on: self, withPlayer: avPlayer) }
+    private func setupComponents() { overlayView.setup(on: self, withPlayer: avPlayer, andTitle: title) }
     
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first, self.bounds.contains(touch.location(in: self))  else { return }
