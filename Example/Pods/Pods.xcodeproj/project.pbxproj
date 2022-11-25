@@ -233,13 +233,10 @@
 		BF35FD30292E4F79006DF75D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				BF35FD41292E4FA9006DF75D /* BottomView */,
-				BF35FD3B292E4FA9006DF75D /* ControlsView */,
+				BFC869712930EAE7003E5CEA /* Widgets */,
 				BF35FD37292E4FA9006DF75D /* Extension */,
 				BF35FD3A292E4FA9006DF75D /* EZYVideoPlayer.swift */,
-				BF35FD45292E4FA9006DF75D /* OverlayView */,
 				BF35FD35292E4FA9006DF75D /* Protocol */,
-				BF35FD3E292E4FA9006DF75D /* TopView */,
 				BF35FD31292E4F79006DF75D /* .gitkeep */,
 			);
 			name = Classes;
@@ -298,6 +295,17 @@
 				BF35FD47292E4FA9006DF75D /* EZYOverlayViewModel.swift */,
 			);
 			path = OverlayView;
+			sourceTree = "<group>";
+		};
+		BFC869712930EAE7003E5CEA /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				BF35FD41292E4FA9006DF75D /* BottomView */,
+				BF35FD3B292E4FA9006DF75D /* ControlsView */,
+				BF35FD45292E4FA9006DF75D /* OverlayView */,
+				BF35FD3E292E4FA9006DF75D /* TopView */,
+			);
+			path = Widgets;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
