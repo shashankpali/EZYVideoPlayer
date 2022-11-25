@@ -28,6 +28,7 @@ internal final class EZYOverlayViewModel: EZYOverlayViewModelProtocol {
     
     func startTimer() {
         debounceTimer?.invalidate()
+        debounceTimer = nil
         debounceTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { [weak self] timer in
             self?.isVisible = false
             self?.delegate?.keepVisible(false)
