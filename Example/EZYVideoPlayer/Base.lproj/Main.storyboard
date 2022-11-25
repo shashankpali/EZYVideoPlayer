@@ -34,8 +34,8 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="OVa-xj-K66" secondAttribute="bottom" id="I68-fw-YbS"/>
                             <constraint firstAttribute="trailing" secondItem="OVa-xj-K66" secondAttribute="trailing" id="MFJ-er-XcK"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="OVa-xj-K66" secondAttribute="bottom" id="Xeo-5m-Neb"/>
                             <constraint firstItem="OVa-xj-K66" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="vs3-NJ-OHf"/>
                             <constraint firstItem="OVa-xj-K66" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="wkx-Jc-40p"/>
                         </constraints>
