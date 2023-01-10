@@ -8,19 +8,21 @@
 import Foundation
 import AVFoundation
 
-protocol EZYOverlayViewModelProtocol: EZYInteractionProtocol, EZYControlActionProtocol {
-    init(player: AVPlayer?, delegate: EZYOverlayProtocol)
+internal protocol EZYOverlayViewModelProtocol: EZYInteractionProtocol, EZYControlActionDelegate {
+    init(playerModel: EZYVideoPlayerModelProtocol?, delegate: EZYOverlayProtocol)
+    
+    func playerCurrent(position: Float)
 }
 
 internal final class EZYOverlayViewModel: EZYOverlayViewModelProtocol {
     
-    weak var player : AVPlayer?
+    var playerModel : EZYVideoPlayerModelProtocol?
     var delegate: EZYOverlayProtocol?
     var isVisible = true
     var debounceTimer: Timer?
     
-    required init(player: AVPlayer?, delegate: EZYOverlayProtocol) {
-        self.player = player
+    required init(playerModel: EZYVideoPlayerModelProtocol?, delegate: EZYOverlayProtocol) {
+        self.playerModel = playerModel
         self.delegate = delegate
         
         startTimer()
@@ -39,6 +41,10 @@ internal final class EZYOverlayViewModel: EZYOverlayViewModelProtocol {
 extension EZYOverlayViewModel {
     
     //MARK: EZYInteractionProtocol
+    func didChangeOrientation(isLandscape: Bool) {
+        playerModel?.delegate?.didChangeOrientation(isLandscape: isLandscape)
+    }
+    
     func didInteracted(withWidget: Bool) {
         guard withWidget == false else {return startTimer()}
         isVisible = !isVisible
@@ -46,35 +52,23 @@ extension EZYOverlayViewModel {
         delegate?.keepVisible(isVisible)
     }
     
+    func playerCurrent(position: Float) {
+        playerModel?.seek(withValue: position)
+    }
+    
     //MARK: EZYControlActionProtocol
     func didPressedPlay(shouldPlay: Bool) {
         startTimer()
-        shouldPlay ? player?.play() : player?.pause()
+        playerModel?.should(play: shouldPlay)
     }
     
     func didPressedForward() {
         startTimer()
-        seek { duration, currentTime in
-            let newTime = currentTime + 10.0
-            return newTime < (duration - 10) ? newTime : duration
-        }
+        playerModel?.seekForward()
     }
     
     func didPressedBackward() {
         startTimer()
-        seek { _, currentTime in
-            let newTime = currentTime - 10.0
-            return newTime < 0 ? 0 : newTime
-        }
-    }
-    
-    //MARK: Helper
-    func seek(time: (_ duration: Float64, _ currentTime: Float64) -> Float64) {
-        guard let duration = player?.currentItem?.duration else {return}
-        guard let currentTime = player?.currentTime() else {return}
-        
-        let newTime = time(CMTimeGetSeconds(duration), CMTimeGetSeconds(currentTime))
-        let time = CMTimeMake(value: Int64(newTime)*1000, timescale: 1000)
-        player?.seek(to: time)
+        playerModel?.seekBackward()
     }
 }

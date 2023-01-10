@@ -21,26 +21,24 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OVa-xj-K66" customClass="EZYVideoPlayer" customModule="EZYVideoPlayer">
-                                <rect key="frame" x="0.0" y="48" width="414" height="233"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="269"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="OVa-xj-K66" secondAttribute="height" multiplier="16:9" priority="750" id="Kp9-Uu-Dne"/>
-                                </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="videoURL" value="http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="title" value="Game of cars"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="videoURL" value="http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="OVa-xj-K66" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.3" id="L0a-JI-3pg"/>
                             <constraint firstAttribute="trailing" secondItem="OVa-xj-K66" secondAttribute="trailing" id="MFJ-er-XcK"/>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="OVa-xj-K66" secondAttribute="bottom" id="Xeo-5m-Neb"/>
                             <constraint firstItem="OVa-xj-K66" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="vs3-NJ-OHf"/>
                             <constraint firstItem="OVa-xj-K66" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="wkx-Jc-40p"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="heightConst" destination="L0a-JI-3pg" id="n64-UV-wlH"/>
                         <outlet property="playerView" destination="OVa-xj-K66" id="1Hb-iY-8qs"/>
                     </connections>
                 </viewController>

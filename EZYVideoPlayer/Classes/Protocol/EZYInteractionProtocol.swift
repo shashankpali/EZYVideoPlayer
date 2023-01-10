@@ -7,6 +7,7 @@
 
 import Foundation
 
-protocol EZYInteractionProtocol {
+internal protocol EZYInteractionProtocol {
     func didInteracted(withWidget: Bool)
+    func didChangeOrientation(isLandscape: Bool)
 }

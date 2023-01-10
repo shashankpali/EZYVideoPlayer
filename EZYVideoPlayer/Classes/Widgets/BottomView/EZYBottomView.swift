@@ -8,19 +8,14 @@
 import UIKit
 import AVFoundation
 
-protocol BottomViewUpdateUIProtocol {
-    func update(currentTimeString: String)
-    func update(endTimeString: String)
-    func update(seekerMinValue: Float)
-    func update(seekerCurrentValue: Float)
-    func update(seekerMaxValue: Float)
-}
-
-protocol EZYBottomViewProtocol {
-    var delegate: EZYInteractionProtocol? { get set }
+internal protocol EZYBottomViewProtocol {
+    var delegate: EZYOverlayViewModelProtocol? { get set }
     
-    static func setup(on view: UIView, withPlayer: AVPlayer?) -> EZYBottomViewProtocol
+    static func setup(on view: UIView) -> EZYBottomViewProtocol
     func addMenu()
+    
+    func playerCurrent(position: Float)
+    func player(duration: Float)
 }
 
 internal final class EZYBottomView: UIView, EZYBottomViewProtocol {
@@ -28,17 +23,13 @@ internal final class EZYBottomView: UIView, EZYBottomViewProtocol {
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
     @IBOutlet weak var seeker: UISlider!
-    
     @IBOutlet weak var menuBtn: UIButton!
     //
-    var delegate: EZYInteractionProtocol?
-    var model: EZYBottomViewModelProtocol?
+    var delegate: EZYOverlayViewModelProtocol?
     
-    static func setup(on view: UIView, withPlayer: AVPlayer?) -> EZYBottomViewProtocol {
+    static func setup(on view: UIView) -> EZYBottomViewProtocol {
         
         let bottom = EZYBottomView.instantiate(withOwner: nil)
-        bottom.model = EZYBottomViewModel(player: withPlayer, delegate: bottom)
-        
         view.addSubview(bottom)
         
         bottom.translatesAutoresizingMaskIntoConstraints = false
@@ -52,8 +43,32 @@ internal final class EZYBottomView: UIView, EZYBottomViewProtocol {
     //MARK: - User action
     
     @IBAction func seekerChanged(_ sender: UISlider) {
+        delegate?.playerCurrent(position: sender.value)
         delegate?.didInteracted(withWidget: true)
-        model?.seekerUpdated(withValue: sender.value)
+    }
+    
+    //MARK: - Update UI
+    
+    func playerCurrent(position: Float) {
+        seeker.value = position
+        currentTimeLabel.text = getTimeString(from: position)
+    }
+    
+    func player(duration: Float) {
+        seeker.minimumValue = 0
+        seeker.maximumValue = duration
+        endTimeLabel.text = getTimeString(from: duration)
+    }
+    
+    func getTimeString(from totalSeconds: Float) -> String {
+        let hh = Int(totalSeconds/3600)
+        let mm = Int(totalSeconds/60) % 60
+        let ss = Int(totalSeconds.truncatingRemainder(dividingBy: 60)) % 60
+        if hh > 0 {
+            return String(format: "%d:%02d:%02d", hh,mm,ss)
+        }else {
+            return String(format: "%02d:%02d", mm,ss)
+        }
     }
     
 }
@@ -71,16 +86,4 @@ extension EZYBottomView: EZYMenuProtocol {
     func didSelectMenu(item: String, child: String) {
         delegate?.didInteracted(withWidget: true)
     }
-}
-
-extension EZYBottomView: BottomViewUpdateUIProtocol {
-    func update(currentTimeString: String) { currentTimeLabel.text = currentTimeString }
-    
-    func update(endTimeString: String) { endTimeLabel.text = endTimeString }
-    
-    func update(seekerMinValue: Float) { seeker.minimumValue = seekerMinValue }
-    
-    func update(seekerCurrentValue: Float) { seeker.value = seekerCurrentValue }
-    
-    func update(seekerMaxValue: Float) { seeker.maximumValue = seekerMaxValue }
 }

@@ -10,8 +10,10 @@ import AVFoundation
 import AVKit
 
 public protocol EZYVideoPlayerProtocol {
+    var delegate: EZYVideoPlayerDelegate? { get set }
+    
     func startWith(thumbnail: UIImage, mainURL: String)
-    func startWith(trailerURL: UIImage, mainURL: String)
+    func startWith(trailerURL: String, mainURL: String)
     func startWith(mainURL: String)
 }
 
@@ -20,10 +22,11 @@ public protocol EZYVideoPlayerProtocol {
     @IBInspectable var title: String = "Video title will be showen here"
     @IBInspectable var videoURL: String = "http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8"
     
-    private var avPlayer: AVPlayer?
+    public var delegate: EZYVideoPlayerDelegate?
+    private var model: EZYVideoPlayerModelProtocol?
     private var avPlayerLayer: AVPlayerLayer?
     
-    let overlayView : EZYOverlayProtocol = EZYOverlayView()
+    private var overlayView : EZYOverlayProtocol = EZYOverlayView()
     
     public override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,10 +40,12 @@ public protocol EZYVideoPlayerProtocol {
     }
     
     private func setupPlayer() {
-        guard let url = URL(string: videoURL) else {return}
-        avPlayer = AVPlayer(url: url)
         
-        avPlayerLayer = AVPlayerLayer(player: avPlayer)
+        model = EZYVideoPlayerModel(urlString: videoURL)
+        model?.delegate = self
+        guard let player = model?.player else {return}
+        
+        avPlayerLayer = AVPlayerLayer(player: player)
         avPlayerLayer?.videoGravity = .resizeAspect
         avPlayerLayer?.backgroundColor = UIColor(white: 0, alpha: 1).cgColor
         
@@ -48,7 +53,10 @@ public protocol EZYVideoPlayerProtocol {
         layer.addSublayer(avPlayerLayer!)
     }
     
-    private func setupComponents() { overlayView.setup(on: self, withPlayer: avPlayer, andTitle: title) }
+    private func setupComponents() {
+        overlayView.setup(on: self, playerModel: model, andTitle: title)
+//        overlayView.delegate = self
+    }
     
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first, self.bounds.contains(touch.location(in: self))  else { return }
@@ -57,3 +65,27 @@ public protocol EZYVideoPlayerProtocol {
     }
     
 }
+
+extension EZYVideoPlayer: EZYVideoPlayerDelegate {
+    
+    public func didChangedPlayer(status: PlayerStatus) {
+        delegate?.didChangedPlayer(status: status)
+    }
+    
+    public func playerDidChanged(position: Float) {
+        overlayView.playerCurrent(position: position)
+        delegate?.playerDidChanged(position: position)
+    }
+    
+    public func player(duration: Float) {
+        overlayView.player(duration: duration)
+        delegate?.player(duration: duration)
+    }
+    
+    public func didChangeOrientation(isLandscape: Bool) {
+        delegate?.didChangeOrientation(isLandscape: isLandscape)
+    }
+
+}
+
+

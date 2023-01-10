@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol EZYTopViewProtocol {
+internal protocol EZYTopViewProtocol {
     var delegate: EZYInteractionProtocol? { get set }
     
     static func setup(on view: UIView, withTitle: String?) -> EZYTopViewProtocol
@@ -65,6 +65,7 @@ internal final class EZYTopView: UIView, EZYTopViewProtocol {
     
     func updateBtnImage(forLandscape: Bool) {
         isLandscape = forLandscape
+        delegate?.didChangeOrientation(isLandscape: isLandscape)
         let img = isLandscape ? "arrow.down.right.and.arrow.up.left" : "arrow.up.left.and.arrow.down.right"
         expandBtn.setImage(UIImage(systemName: img), for: .normal)
     }
