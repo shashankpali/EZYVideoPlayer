@@ -55,7 +55,6 @@ public protocol EZYVideoPlayerProtocol {
     
     private func setupComponents() {
         overlayView.setup(on: self, playerModel: model, andTitle: title)
-//        overlayView.delegate = self
     }
     
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
