@@ -22,9 +22,9 @@ public protocol EZYVideoPlayerProtocol {
     @IBInspectable var title: String = "Video title will be showen here"
     @IBInspectable var videoURL: String = "http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8"
     
-    public var delegate: EZYVideoPlayerDelegate?
+    public weak var delegate: EZYVideoPlayerDelegate?
+    private weak var avPlayerLayer: AVPlayerLayer?
     private var model: EZYVideoPlayerModelProtocol?
-    private var avPlayerLayer: AVPlayerLayer?
     
     private var overlayView : EZYOverlayProtocol = EZYOverlayView()
     
@@ -45,7 +45,8 @@ public protocol EZYVideoPlayerProtocol {
         model?.delegate = self
         guard let player = model?.player else {return}
         
-        avPlayerLayer = AVPlayerLayer(player: player)
+        let pl = AVPlayerLayer(player: player)
+        avPlayerLayer = pl
         avPlayerLayer?.videoGravity = .resizeAspect
         avPlayerLayer?.backgroundColor = UIColor(white: 0, alpha: 1).cgColor
         
@@ -62,7 +63,6 @@ public protocol EZYVideoPlayerProtocol {
         
         overlayView.didInteracted(withWidget: false)
     }
-    
 }
 
 extension EZYVideoPlayer: EZYVideoPlayerDelegate {

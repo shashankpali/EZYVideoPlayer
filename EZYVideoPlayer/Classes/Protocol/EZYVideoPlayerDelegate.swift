@@ -11,7 +11,7 @@ public enum PlayerStatus {
     case  buffering, buffered, playing, paused, ended, seekBackward, seekForward, failed(errorMsg: String?), unknown
 }
 
-public protocol EZYVideoPlayerDelegate {
+public protocol EZYVideoPlayerDelegate: AnyObject {
     func didChangedPlayer(status: PlayerStatus)
     func playerDidChanged(position: Float)
     func player(duration: Float)

@@ -29,9 +29,9 @@ internal enum PlayerObserverKey: String {
 
 internal final class EZYVideoPlayerModel: NSObject, EZYVideoPlayerModelProtocol {
     
-    var player: AVPlayer?
     var timeObserver: Any?
-    var delegate: EZYVideoPlayerDelegate? {
+    weak var player: AVPlayer?
+    weak var delegate: EZYVideoPlayerDelegate? {
         didSet {
             delegate?.didChangedPlayer(status: .buffering)
         }
@@ -45,8 +45,8 @@ internal final class EZYVideoPlayerModel: NSObject, EZYVideoPlayerModelProtocol 
         let requiredAssetKeys = ["playable", "hasProtectedContent"]
         let playerItem = AVPlayerItem(asset: asset, automaticallyLoadedAssetKeys: requiredAssetKeys)
         
-        player = AVPlayer(playerItem: playerItem)
-        
+        let p = AVPlayer(playerItem: playerItem)
+        self.player = p
         observePlayer()
     }
     
@@ -101,6 +101,7 @@ internal final class EZYVideoPlayerModel: NSObject, EZYVideoPlayerModelProtocol 
         player?.currentItem?.removeObserver(self, forKeyPath: PlayerObserverKey[.duration])
         guard let t = timeObserver else {return}
         player?.removeTimeObserver(t)
+        timeObserver = nil
     }
 }
 
