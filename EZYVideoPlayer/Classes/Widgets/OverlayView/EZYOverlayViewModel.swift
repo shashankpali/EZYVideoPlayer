@@ -16,10 +16,10 @@ internal protocol EZYOverlayViewModelProtocol: EZYInteractionProtocol, EZYContro
 
 internal final class EZYOverlayViewModel: EZYOverlayViewModelProtocol {
     
-    var playerModel : EZYVideoPlayerModelProtocol?
-    var delegate: EZYOverlayProtocol?
+    weak var playerModel : EZYVideoPlayerModelProtocol?
+    weak var delegate: EZYOverlayProtocol?
+    weak var debounceTimer: Timer?
     var isVisible = true
-    var debounceTimer: Timer?
     
     required init(playerModel: EZYVideoPlayerModelProtocol?, delegate: EZYOverlayProtocol) {
         self.playerModel = playerModel

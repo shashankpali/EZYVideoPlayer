@@ -8,7 +8,7 @@
 import UIKit
 import AVFoundation
 
-internal protocol EZYOverlayProtocol: EZYInteractionProtocol {
+internal protocol EZYOverlayProtocol: AnyObject, EZYInteractionProtocol {
     func setup(on view: UIView, playerModel: EZYVideoPlayerModelProtocol?, andTitle: String)
     func keepVisible(_ visible:Bool)
     func playerCurrent(position: Float)
@@ -17,7 +17,7 @@ internal protocol EZYOverlayProtocol: EZYInteractionProtocol {
 
 internal final class EZYOverlayView: UIView, EZYOverlayProtocol {
 
-    var model: EZYOverlayViewModel?
+    var model: EZYOverlayViewModelProtocol?
     var bottomView: EZYBottomViewProtocol?
     
     func setup(on view: UIView, playerModel: EZYVideoPlayerModelProtocol?, andTitle: String) {

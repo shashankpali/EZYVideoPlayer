@@ -8,7 +8,7 @@
 import Foundation
 import AVFoundation
 
-internal protocol EZYVideoPlayerModelProtocol {
+internal protocol EZYVideoPlayerModelProtocol: AnyObject {
     var player: AVPlayer? {get}
     var delegate: EZYVideoPlayerDelegate? {get set}
     init(urlString: String)
