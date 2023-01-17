@@ -29,8 +29,8 @@ internal enum PlayerObserverKey: String {
 
 internal final class EZYVideoPlayerModel: NSObject, EZYVideoPlayerModelProtocol {
     
-    var startedObserving = false
     var player: AVPlayer?
+    var timeObserver: Any?
     var delegate: EZYVideoPlayerDelegate? {
         didSet {
             delegate?.didChangedPlayer(status: .buffering)
@@ -83,13 +83,12 @@ internal final class EZYVideoPlayerModel: NSObject, EZYVideoPlayerModelProtocol 
     /// This function is used to observe the current time of an AVPlayer. It sets up a periodic time observer that calls a callback function on the main queue at a specified interval. The callback function passes the current time to the delegate.
     func observerCurrentTime() {
         // check if observer is already started
-        guard startedObserving == false else {return}
-        startedObserving = true
+        guard timeObserver == nil else {return}
         // set the time interval for the observer
         let interval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         let mainQueue = DispatchQueue.main
         // add the observer, using a closure as the callback function
-        _ = player?.addPeriodicTimeObserver(forInterval: interval, queue: mainQueue, using: { [weak self] time in
+        timeObserver = player?.addPeriodicTimeObserver(forInterval: interval, queue: mainQueue, using: { [weak self] time in
             guard let currentItem = self?.player?.currentItem else {return}
             // call delegate method to pass the current time
             self?.delegate?.playerDidChanged(position: Float(currentItem.currentTime().seconds))
@@ -99,7 +98,8 @@ internal final class EZYVideoPlayerModel: NSObject, EZYVideoPlayerModelProtocol 
     deinit {
         player?.currentItem?.removeObserver(self, forKeyPath: PlayerObserverKey[.status])
         player?.currentItem?.removeObserver(self, forKeyPath: PlayerObserverKey[.duration])
-        player?.removeTimeObserver(self)
+        guard let t = timeObserver else {return}
+        player?.removeTimeObserver(t)
     }
 }
 
