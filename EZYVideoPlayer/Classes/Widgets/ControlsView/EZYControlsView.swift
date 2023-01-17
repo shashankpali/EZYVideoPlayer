@@ -7,7 +7,7 @@
 
 import UIKit
 
-internal protocol EZYControlActionDelegate {
+internal protocol EZYControlActionDelegate: AnyObject {
     func didPressedPlay(shouldPlay: Bool)
     func didPressedForward()
     func didPressedBackward()
@@ -21,14 +21,13 @@ internal protocol EZYControlProtocol {
 internal final class EZYControlsView: UIView, EZYControlProtocol {
 
     @IBOutlet weak var playPauseBtn: UIButton!
+    //
+    weak var delegate : EZYControlActionDelegate?
     var isPlaying = true
-    var delegate : EZYControlActionDelegate?
-
     
     static func setup(on view: UIView) -> EZYControlProtocol {
         
         let controls = EZYControlsView.instantiate(withOwner: nil)
-        
         view.addSubview(controls)
         
         controls.translatesAutoresizingMaskIntoConstraints = false

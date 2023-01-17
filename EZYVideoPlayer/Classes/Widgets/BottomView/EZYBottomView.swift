@@ -25,7 +25,7 @@ internal final class EZYBottomView: UIView, EZYBottomViewProtocol {
     @IBOutlet weak var seeker: UISlider!
     @IBOutlet weak var menuBtn: UIButton!
     //
-    var delegate: EZYOverlayViewModelProtocol?
+    weak var delegate: EZYOverlayViewModelProtocol?
     
     static func setup(on view: UIView) -> EZYBottomViewProtocol {
         
