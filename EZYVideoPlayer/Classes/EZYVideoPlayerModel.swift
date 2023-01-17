@@ -67,6 +67,7 @@ internal final class EZYVideoPlayerModel: NSObject, EZYVideoPlayerModelProtocol 
             switch status {
             case .readyToPlay:
                 delegate?.didChangedPlayer(status: .buffered)
+                player?.play()
             case .failed:
                 delegate?.didChangedPlayer(status: .failed(errorMsg: player?.currentItem?.error?.localizedDescription))
             case .unknown:

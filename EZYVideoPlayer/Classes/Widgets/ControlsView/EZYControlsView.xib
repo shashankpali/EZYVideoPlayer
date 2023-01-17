@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="EZYControlsView" customModule="EZYVideoPalyer" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="EZYControlsView" customModule="EZYVideoPlayer" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="347" height="156"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -40,7 +40,7 @@
                             <color key="tintColor" systemColor="systemBackgroundColor"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal">
-                                <imageReference key="image" image="play.fill" catalog="system" symbolScale="large"/>
+                                <imageReference key="image" image="pause.fill" catalog="system" symbolScale="large"/>
                             </state>
                             <connections>
                                 <action selector="playPauseTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="vsb-YI-tpF"/>
@@ -88,7 +88,7 @@
     <resources>
         <image name="gobackward.10" catalog="system" width="119" height="128"/>
         <image name="goforward.10" catalog="system" width="119" height="128"/>
-        <image name="play.fill" catalog="system" width="117" height="128"/>
+        <image name="pause.fill" catalog="system" width="117" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -21,7 +21,7 @@ internal protocol EZYControlProtocol {
 internal final class EZYControlsView: UIView, EZYControlProtocol {
 
     @IBOutlet weak var playPauseBtn: UIButton!
-    var isPlaying = false
+    var isPlaying = true
     var delegate : EZYControlActionDelegate?
 
     
