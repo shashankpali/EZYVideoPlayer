@@ -13,6 +13,7 @@ internal protocol EZYOverlayProtocol: AnyObject, EZYInteractionProtocol {
     func keepVisible(_ visible:Bool)
     func playerCurrent(position: Float)
     func player(duration: Float)
+    func removeInstance()
 }
 
 internal final class EZYOverlayView: UIView, EZYOverlayProtocol {
@@ -63,5 +64,8 @@ internal final class EZYOverlayView: UIView, EZYOverlayProtocol {
     func player(duration: Float) {
         bottomView?.player(duration: duration)
     }
-
+    
+    func removeInstance() {
+        self.removeFromSuperview()
+    }
 }

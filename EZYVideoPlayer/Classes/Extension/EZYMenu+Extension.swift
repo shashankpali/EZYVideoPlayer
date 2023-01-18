@@ -8,7 +8,7 @@
 import UIKit
 
 
-protocol EZYMenuProtocol {
+protocol EZYMenuProtocol: AnyObject {
     func didSelectMenu(item: String, child: String)
 }
 
@@ -18,8 +18,8 @@ extension UIMenu {
         var actionChildren: [UIAction] = []
         
         for child in children {
-            actionChildren += [UIAction(title: child, handler: {[menuTitle, child] _ in
-                delegate.didSelectMenu(item: menuTitle, child: child)
+            actionChildren += [UIAction(title: child, handler: {[menuTitle, child, weak delegate] _ in
+                delegate?.didSelectMenu(item: menuTitle, child: child)
             })]
         }
         
