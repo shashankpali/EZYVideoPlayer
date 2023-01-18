@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EZYVideoPlayer'
-  s.version          = '0.2.1'
+  s.version          = '0.2.2'
   s.summary          = 'EZYVideoPlayer helps you to create a HLS video player without writing a single line of code.'
 
 # This description is used to generate tags and improve search results.
