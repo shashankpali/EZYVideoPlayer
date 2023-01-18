@@ -12,12 +12,11 @@ import AVKit
 public protocol EZYVideoPlayerProtocol {
     var delegate: EZYVideoPlayerDelegate? { get set }
     
-    func startWith(thumbnail: UIImage, mainURL: String)
-    func startWith(trailerURL: String, mainURL: String)
+    func startWith(trailerURL: String, thumbnail: UIImage, mute: Bool)
     func startWith(mainURL: String)
 }
 
-@IBDesignable public class EZYVideoPlayer: UIView {
+@IBDesignable public class EZYVideoPlayer: UIView, EZYVideoPlayerProtocol {
     
     @IBInspectable var title: String = "Video title will be showen here"
     @IBInspectable var videoURL: String = "http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8"
@@ -26,11 +25,20 @@ public protocol EZYVideoPlayerProtocol {
     private weak var avPlayerLayer: AVPlayerLayer?
     private var model: EZYVideoPlayerModelProtocol?
     
-    private var overlayView : EZYOverlayProtocol = EZYOverlayView()
+    private weak var overlayView : EZYOverlayProtocol?
     
     public override func awakeFromNib() {
         super.awakeFromNib()
-        setupPlayer()
+    }
+    
+    public func startWith(trailerURL: String, thumbnail: UIImage, mute: Bool) {
+        overlayView?.removeInstance()
+        setupPlayer(url: trailerURL)
+        self.layoutSubviews()
+    }
+    
+    public func startWith(mainURL: String) {
+        setupPlayer(url: mainURL)
         setupComponents()
     }
     
@@ -39,9 +47,11 @@ public protocol EZYVideoPlayerProtocol {
         avPlayerLayer?.frame = self.bounds
     }
     
-    private func setupPlayer() {
+    private func setupPlayer(url: String) {
+        avPlayerLayer?.removeFromSuperlayer()
+        model = nil
         
-        model = EZYVideoPlayerModel(urlString: videoURL)
+        model = EZYVideoPlayerModel(urlString: url)
         model?.delegate = self
         guard let player = model?.player else {return}
         
@@ -55,13 +65,14 @@ public protocol EZYVideoPlayerProtocol {
     }
     
     private func setupComponents() {
-        overlayView.setup(on: self, playerModel: model, andTitle: title)
+        let o = EZYOverlayView()
+        overlayView = o
+        overlayView?.setup(on: self, playerModel: model, andTitle: title)
     }
     
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first, self.bounds.contains(touch.location(in: self))  else { return }
-        
-        overlayView.didInteracted(withWidget: false)
+        overlayView?.didInteracted(withWidget: false)
     }
 }
 
@@ -72,12 +83,12 @@ extension EZYVideoPlayer: EZYVideoPlayerDelegate {
     }
     
     public func playerDidChanged(position: Float) {
-        overlayView.playerCurrent(position: position)
+        overlayView?.playerCurrent(position: position)
         delegate?.playerDidChanged(position: position)
     }
     
     public func player(duration: Float) {
-        overlayView.player(duration: duration)
+        overlayView?.player(duration: duration)
         delegate?.player(duration: duration)
     }
     
