@@ -161,6 +161,7 @@ extension EZYVideoPlayerModel {
         guard let currentTime = player?.currentTime() else {return}
         
         let newTime = time(CMTimeGetSeconds(duration), CMTimeGetSeconds(currentTime))
+        guard newTime.isNormal else {return}
         seek(withValue: Float(newTime))
     }
     
