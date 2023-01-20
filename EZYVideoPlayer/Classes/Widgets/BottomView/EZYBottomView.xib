@@ -13,21 +13,21 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="EZYBottomView" customModule="EZYVideoPalyer" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="EZYBottomView" customModule="EZYVideoPlayer" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="510" height="244"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="AuT-SP-tfe">
-                    <rect key="frame" x="16" y="164" width="478" height="30"/>
+                    <rect key="frame" x="16" y="97" width="478" height="97"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wl-Dz-c2n">
-                            <rect key="frame" x="0.0" y="0.0" width="60.333333333333336" height="30"/>
+                            <rect key="frame" x="0.0" y="0.0" width="60.333333333333336" height="97"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" systemColor="systemBackgroundColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bSz-3I-Fkk">
-                            <rect key="frame" x="66.333333333333343" y="0.0" width="345.33333333333326" height="31"/>
+                            <rect key="frame" x="66.333333333333343" y="0.0" width="345.33333333333326" height="98"/>
                             <color key="minimumTrackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -35,7 +35,7 @@
                             </connections>
                         </slider>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LRH-TG-cVG">
-                            <rect key="frame" x="417.66666666666669" y="0.0" width="60.333333333333314" height="30"/>
+                            <rect key="frame" x="417.66666666666669" y="0.0" width="60.333333333333314" height="97"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" systemColor="systemBackgroundColor"/>
                             <nil key="highlightedColor"/>
@@ -43,7 +43,7 @@
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fE-FB-H0d">
-                    <rect key="frame" x="444" y="114" width="50" height="50"/>
+                    <rect key="frame" x="444" y="47" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="2fE-FB-H0d" secondAttribute="height" multiplier="1:1" id="SE8-bI-X2v"/>
                         <constraint firstAttribute="height" constant="50" id="ScL-5E-tHr"/>
@@ -60,7 +60,7 @@
             <constraints>
                 <constraint firstItem="AuT-SP-tfe" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="1yL-Lk-Tdb"/>
                 <constraint firstItem="2fE-FB-H0d" firstAttribute="trailing" secondItem="AuT-SP-tfe" secondAttribute="trailing" id="IM7-b1-mkd"/>
-                <constraint firstItem="2fE-FB-H0d" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="top" id="Jec-K6-8D9"/>
+                <constraint firstItem="2fE-FB-H0d" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Jec-K6-8D9"/>
                 <constraint firstItem="AuT-SP-tfe" firstAttribute="top" secondItem="2fE-FB-H0d" secondAttribute="bottom" id="NG0-TD-f0F"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="AuT-SP-tfe" secondAttribute="trailing" constant="16" id="itl-HW-4qM"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="AuT-SP-tfe" secondAttribute="bottom" constant="16" id="sU0-AE-G7b"/>

@@ -17,10 +17,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OYx-XB-sFE">
-                    <rect key="frame" x="88.666666666666686" y="53" width="170" height="50"/>
+                    <rect key="frame" x="0.0" y="47" width="347" height="109"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YxU-Vz-NC6" userLabel="backward">
-                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <rect key="frame" x="0.0" y="29.666666666666671" width="50" height="50"/>
                             <color key="tintColor" systemColor="systemBackgroundColor"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal">
@@ -31,7 +31,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46c-zg-Gec">
-                            <rect key="frame" x="59.999999999999986" y="0.0" width="50" height="50"/>
+                            <rect key="frame" x="148.66666666666666" y="29.666666666666671" width="50" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="46c-zg-Gec" secondAttribute="height" multiplier="1:1" id="lH7-Ov-1F9"/>
                                 <constraint firstAttribute="height" constant="50" id="sM3-8k-tcm"/>
@@ -47,7 +47,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZDo-JO-S2y" userLabel="forward">
-                            <rect key="frame" x="120" y="0.0" width="50" height="50"/>
+                            <rect key="frame" x="297" y="29.666666666666671" width="50" height="50"/>
                             <color key="tintColor" systemColor="systemBackgroundColor"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal">
@@ -70,11 +70,10 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="OYx-XB-sFE" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="DkH-vZ-kXr"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OYx-XB-sFE" secondAttribute="trailing" id="HHh-eX-B9J"/>
-                <constraint firstItem="OYx-XB-sFE" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="SSI-vh-pMh"/>
-                <constraint firstItem="OYx-XB-sFE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="top" id="eeJ-XA-iPy"/>
-                <constraint firstItem="OYx-XB-sFE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="leading" id="rF4-Af-Bf7"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="OYx-XB-sFE" secondAttribute="bottom" id="sDC-O3-phX"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="OYx-XB-sFE" secondAttribute="trailing" id="HHh-eX-B9J"/>
+                <constraint firstItem="OYx-XB-sFE" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="eeJ-XA-iPy"/>
+                <constraint firstItem="OYx-XB-sFE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="rF4-Af-Bf7"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="OYx-XB-sFE" secondAttribute="bottom" id="sDC-O3-phX"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
