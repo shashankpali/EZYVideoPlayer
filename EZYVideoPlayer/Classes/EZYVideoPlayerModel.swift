@@ -16,7 +16,7 @@ internal protocol EZYVideoPlayerModelProtocol: AnyObject {
     func seekForward()
     func seekBackward()
     func seek(withValue: Float)
-    func should(play: Bool)
+    func isPlaying() -> Bool
     func should(mute: Bool)
 }
 
@@ -29,6 +29,7 @@ internal enum PlayerObserverKey: String {
 
 internal final class EZYVideoPlayerModel: NSObject, EZYVideoPlayerModelProtocol {
     
+    var shouldPlay = true //default player will start playing when buffered
     var timeObserver: Any?
     weak var player: AVPlayer?
     weak var delegate: EZYVideoPlayerDelegate? {
@@ -67,7 +68,7 @@ internal final class EZYVideoPlayerModel: NSObject, EZYVideoPlayerModelProtocol 
             switch status {
             case .readyToPlay:
                 delegate?.didChangedPlayer(status: .buffered)
-                player?.play()
+                shouldPlay ? player?.play() : player?.pause()
             case .failed:
                 delegate?.didChangedPlayer(status: .failed(errorMsg: player?.currentItem?.error?.localizedDescription))
             case .unknown:
@@ -109,14 +110,16 @@ internal final class EZYVideoPlayerModel: NSObject, EZYVideoPlayerModelProtocol 
 
 extension EZYVideoPlayerModel {
     
-    func should(play: Bool) {
-        if play {
+    func isPlaying() -> Bool {
+        shouldPlay = !shouldPlay
+        if shouldPlay {
             player?.play()
             delegate?.didChangedPlayer(status: .playing)
         }else {
             player?.pause()
             delegate?.didChangedPlayer(status: .paused)
         }
+        return shouldPlay
     }
     
     func should(mute: Bool) {

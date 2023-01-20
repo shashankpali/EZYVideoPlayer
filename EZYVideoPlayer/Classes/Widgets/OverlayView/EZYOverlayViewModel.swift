@@ -57,9 +57,9 @@ extension EZYOverlayViewModel {
     }
     
     //MARK: EZYControlActionProtocol
-    func didPressedPlay(shouldPlay: Bool) {
+    func didPrassedPlayPause() -> Bool {
         startTimer()
-        playerModel?.should(play: shouldPlay)
+        return playerModel?.isPlaying() ?? false
     }
     
     func didPressedForward() {
