@@ -7,17 +7,6 @@
 
 import UIKit
 
-internal protocol EZYControlActionDelegate: AnyObject, EZYInteractionProtocol {
-    func didPrassedPlayPause() -> Bool
-    func didPressedForward()
-    func didPressedBackward()
-}
-
-internal protocol EZYControlProtocol {
-    var delegate : EZYControlActionDelegate? { get set }
-    static func setup(on view: UIView) -> EZYControlProtocol
-}
-
 internal final class EZYControlsView: UIView, EZYControlProtocol {
 
     @IBOutlet weak var playPauseBtn: UIButton!

@@ -8,25 +8,6 @@
 import Foundation
 import AVFoundation
 
-internal protocol EZYVideoPlayerModelProtocol: AnyObject {
-    var player: AVPlayer? {get}
-    var delegate: EZYVideoPlayerDelegate? {get set}
-    init(urlString: String)
-    
-    func seekForward()
-    func seekBackward()
-    func seek(withValue: Float)
-    func isPlaying() -> Bool
-    func should(mute: Bool)
-}
-
-internal enum PlayerObserverKey: String {
-    case status = "status"
-    case duration = "duration"
-    
-    static subscript(key: PlayerObserverKey) -> String { return key.rawValue }
-}
-
 internal final class EZYVideoPlayerModel: NSObject, EZYVideoPlayerModelProtocol {
     
     var shouldPlay = true //default player will start playing when buffered

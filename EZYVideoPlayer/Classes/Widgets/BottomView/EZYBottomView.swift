@@ -8,16 +8,6 @@
 import UIKit
 import AVFoundation
 
-internal protocol EZYBottomViewProtocol {
-    var delegate: EZYOverlayViewModelProtocol? { get set }
-    
-    static func setup(on view: UIView) -> EZYBottomViewProtocol
-    func addMenu()
-    
-    func playerCurrent(position: Float)
-    func player(duration: Float)
-}
-
 internal final class EZYBottomView: UIView, EZYBottomViewProtocol {
    
     @IBOutlet weak var currentTimeLabel: UILabel!

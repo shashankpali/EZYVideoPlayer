@@ -7,10 +7,6 @@
 
 import Foundation
 
-public enum PlayerStatus {
-    case  buffering, buffered, playing, paused, ended, seekBackward, seekForward, failed(errorMsg: String?), unknown
-}
-
 public protocol EZYVideoPlayerDelegate: AnyObject {
     func didChangedPlayer(status: PlayerStatus)
     func playerDidChanged(position: Float)
@@ -23,4 +19,19 @@ public extension EZYVideoPlayerDelegate {
     func playerDidChanged(position: Float) {}
     func player(duration: Float) {}
     func didChangeOrientation(isLandscape: Bool) {}
+}
+
+internal protocol EZYTopActionDelegate: AnyObject, EZYInteractionProtocol {
+    func didChangeOrientation(isLandscape: Bool)
+}
+
+internal protocol EZYControlActionDelegate: AnyObject, EZYInteractionProtocol {
+    func didPrassedPlayPause() -> Bool
+    func didPressedForward()
+    func didPressedBackward()
+}
+
+internal protocol EZYBottomActionDelegate: AnyObject, EZYInteractionProtocol {
+    func didSelectMenu(item: String, child: String)
+    func didChangedSeeker(position: Float)
 }

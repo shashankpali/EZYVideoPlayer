@@ -9,13 +9,6 @@ import UIKit
 import AVFoundation
 import AVKit
 
-public protocol EZYVideoPlayerProtocol {
-    var delegate: EZYVideoPlayerDelegate? { get set }
-    
-    func startWith(trailerURL: String, thumbnail: UIImage, mute: Bool)
-    func startWith(mainURL: String)
-}
-
 @IBDesignable public class EZYVideoPlayer: UIView, EZYVideoPlayerProtocol {
     
     @IBInspectable var title: String = "Video title will be showen here"

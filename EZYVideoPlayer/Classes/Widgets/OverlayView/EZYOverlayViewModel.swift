@@ -8,10 +8,6 @@
 import Foundation
 import AVFoundation
 
-internal protocol EZYOverlayViewModelProtocol: EZYInteractionProtocol {
-    init(playerModel: EZYVideoPlayerModelProtocol?, delegate: EZYOverlayProtocol)
-}
-
 internal final class EZYOverlayViewModel: EZYOverlayViewModelProtocol {
     
     weak var playerModel : EZYVideoPlayerModelProtocol?

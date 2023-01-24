@@ -15,9 +15,9 @@
 		9D8F71E2CBA5507A75B90CD8EF557934 /* EZYVideoPlayer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 171AF375DBDEAA757C02ED9EB6D4384B /* EZYVideoPlayer-dummy.m */; };
 		A5BFCA4B97B67A3AB6D7F92423385E35 /* Pods-EZYVideoPlayer_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B759B22CE1516C5ACA0B22F644380711 /* Pods-EZYVideoPlayer_Tests-dummy.m */; };
 		BF055C6A296BE662000F9D8F /* EZYVideoPlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF055C69296BE662000F9D8F /* EZYVideoPlayerModel.swift */; };
-		BF27C4132967EC96009AC7F9 /* EZYVideoPlayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF27C4122967EC96009AC7F9 /* EZYVideoPlayerDelegate.swift */; };
+		BF27C4132967EC96009AC7F9 /* Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF27C4122967EC96009AC7F9 /* Delegates.swift */; };
 		BF35FD33292E4F79006DF75D /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = BF35FD31292E4F79006DF75D /* .gitkeep */; };
-		BF35FD48292E4FA9006DF75D /* EZYInteractionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35FD36292E4FA9006DF75D /* EZYInteractionProtocol.swift */; };
+		BF35FD48292E4FA9006DF75D /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35FD36292E4FA9006DF75D /* Protocols.swift */; };
 		BF35FD49292E4FA9006DF75D /* EZYMenu+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35FD38292E4FA9006DF75D /* EZYMenu+Extension.swift */; };
 		BF35FD4A292E4FA9006DF75D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35FD39292E4FA9006DF75D /* UIView+Extension.swift */; };
 		BF35FD4B292E4FA9006DF75D /* EZYVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35FD3A292E4FA9006DF75D /* EZYVideoPlayer.swift */; };
@@ -29,6 +29,7 @@
 		BF35FD51292E4FA9006DF75D /* EZYBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF35FD43292E4FA9006DF75D /* EZYBottomView.xib */; };
 		BF35FD53292E4FA9006DF75D /* EZYOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35FD46292E4FA9006DF75D /* EZYOverlayView.swift */; };
 		BF35FD54292E4FA9006DF75D /* EZYOverlayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35FD47292E4FA9006DF75D /* EZYOverlayViewModel.swift */; };
+		BF65CD17297FF25F00AAD178 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF65CD16297FF25F00AAD178 /* Enums.swift */; };
 		C11A58EF60EAA1DCE1EF7BB494C48231 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		E5DD67626AAF17FDA80B21C5001DD5EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -76,9 +77,9 @@
 		B184011FD87C95F6E5E72D8359A320A6 /* Pods-EZYVideoPlayer_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EZYVideoPlayer_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		B759B22CE1516C5ACA0B22F644380711 /* Pods-EZYVideoPlayer_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EZYVideoPlayer_Tests-dummy.m"; sourceTree = "<group>"; };
 		BF055C69296BE662000F9D8F /* EZYVideoPlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZYVideoPlayerModel.swift; sourceTree = "<group>"; };
-		BF27C4122967EC96009AC7F9 /* EZYVideoPlayerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZYVideoPlayerDelegate.swift; sourceTree = "<group>"; };
+		BF27C4122967EC96009AC7F9 /* Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegates.swift; sourceTree = "<group>"; };
 		BF35FD31292E4F79006DF75D /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
-		BF35FD36292E4FA9006DF75D /* EZYInteractionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZYInteractionProtocol.swift; sourceTree = "<group>"; };
+		BF35FD36292E4FA9006DF75D /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		BF35FD38292E4FA9006DF75D /* EZYMenu+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EZYMenu+Extension.swift"; sourceTree = "<group>"; };
 		BF35FD39292E4FA9006DF75D /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		BF35FD3A292E4FA9006DF75D /* EZYVideoPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZYVideoPlayer.swift; sourceTree = "<group>"; };
@@ -90,6 +91,7 @@
 		BF35FD43292E4FA9006DF75D /* EZYBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EZYBottomView.xib; sourceTree = "<group>"; };
 		BF35FD46292E4FA9006DF75D /* EZYOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZYOverlayView.swift; sourceTree = "<group>"; };
 		BF35FD47292E4FA9006DF75D /* EZYOverlayViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZYOverlayViewModel.swift; sourceTree = "<group>"; };
+		BF65CD16297FF25F00AAD178 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		CF1E159297E27D36F7853AC02D1B3FB0 /* Pods-EZYVideoPlayer_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EZYVideoPlayer_Tests.modulemap"; sourceTree = "<group>"; };
 		D3386B7F5602A35CC051078D38F9C38A /* Pods_EZYVideoPlayer_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EZYVideoPlayer_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAF8FFDEB26346C17378C8E930AE3893 /* Pods-EZYVideoPlayer_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EZYVideoPlayer_Tests-umbrella.h"; sourceTree = "<group>"; };
@@ -249,8 +251,9 @@
 		BF35FD35292E4FA9006DF75D /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				BF35FD36292E4FA9006DF75D /* EZYInteractionProtocol.swift */,
-				BF27C4122967EC96009AC7F9 /* EZYVideoPlayerDelegate.swift */,
+				BF35FD36292E4FA9006DF75D /* Protocols.swift */,
+				BF27C4122967EC96009AC7F9 /* Delegates.swift */,
+				BF65CD16297FF25F00AAD178 /* Enums.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -500,12 +503,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D8F71E2CBA5507A75B90CD8EF557934 /* EZYVideoPlayer-dummy.m in Sources */,
-				BF27C4132967EC96009AC7F9 /* EZYVideoPlayerDelegate.swift in Sources */,
+				BF27C4132967EC96009AC7F9 /* Delegates.swift in Sources */,
 				BF35FD54292E4FA9006DF75D /* EZYOverlayViewModel.swift in Sources */,
 				BF35FD49292E4FA9006DF75D /* EZYMenu+Extension.swift in Sources */,
 				BF35FD4A292E4FA9006DF75D /* UIView+Extension.swift in Sources */,
-				BF35FD48292E4FA9006DF75D /* EZYInteractionProtocol.swift in Sources */,
+				BF35FD48292E4FA9006DF75D /* Protocols.swift in Sources */,
 				BF35FD4B292E4FA9006DF75D /* EZYVideoPlayer.swift in Sources */,
+				BF65CD17297FF25F00AAD178 /* Enums.swift in Sources */,
 				BF35FD53292E4FA9006DF75D /* EZYOverlayView.swift in Sources */,
 				BF35FD4C292E4FA9006DF75D /* EZYControlsView.swift in Sources */,
 				BF35FD50292E4FA9006DF75D /* EZYBottomView.swift in Sources */,
