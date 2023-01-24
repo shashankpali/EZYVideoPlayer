@@ -7,8 +7,12 @@
 
 import UIKit
 
+internal protocol EZYTopActionDelegate: AnyObject, EZYInteractionProtocol {
+    func didChangeOrientation(isLandscape: Bool)
+}
+
 internal protocol EZYTopViewProtocol {
-    var delegate: EZYInteractionProtocol? { get set }
+    var delegate: EZYTopActionDelegate? { get set }
     
     static func setup(on view: UIView, withTitle: String?) -> EZYTopViewProtocol
     func observeOrientation()
@@ -19,7 +23,7 @@ internal final class EZYTopView: UIView, EZYTopViewProtocol {
     @IBOutlet weak var expandBtn: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     //
-    weak var delegate: EZYInteractionProtocol?
+    weak var delegate: EZYTopActionDelegate?
     var isLandscape = false
     
     static func setup(on view: UIView, withTitle: String?) -> EZYTopViewProtocol {

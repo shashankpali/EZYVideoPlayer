@@ -34,23 +34,19 @@ internal final class EZYOverlayView: UIView, EZYOverlayProtocol {
         model = EZYOverlayViewModel(playerModel: playerModel, delegate: self)
         
         var controlsView = EZYControlsView.setup(on: self)
-        controlsView.delegate = model
+        controlsView.delegate = model as? EZYControlActionDelegate
         
         bottomView = EZYBottomView.setup(on: self)
         bottomView?.addMenu()
-        bottomView?.delegate = model
+        bottomView?.delegate = model as? EZYBottomActionDelegate
         
         var topView = EZYTopView.setup(on: self, withTitle: andTitle)
         topView.observeOrientation()
-        topView.delegate = model
+        topView.delegate = model as? EZYTopActionDelegate
     }
     
     func didInteracted(withWidget: Bool) {
         model?.didInteracted(withWidget: withWidget)
-    }
-    
-    func didChangeOrientation(isLandscape: Bool) {
-        model?.didChangeOrientation(isLandscape: isLandscape)
     }
     
     func keepVisible(_ visible: Bool) {
@@ -58,11 +54,11 @@ internal final class EZYOverlayView: UIView, EZYOverlayProtocol {
     }
     
     func playerCurrent(position: Float) {
-        bottomView?.playerCurrent(position: position)
+        bottomView?.seekerCurrent(position: position)
     }
     
     func player(duration: Float) {
-        bottomView?.player(duration: duration)
+        bottomView?.seekerMax(duration: duration)
     }
     
     func removeInstance() {

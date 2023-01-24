@@ -7,7 +7,7 @@
 
 import UIKit
 
-internal protocol EZYControlActionDelegate: AnyObject {
+internal protocol EZYControlActionDelegate: AnyObject, EZYInteractionProtocol {
     func didPrassedPlayPause() -> Bool
     func didPressedForward()
     func didPressedBackward()
@@ -39,15 +39,18 @@ internal final class EZYControlsView: UIView, EZYControlProtocol {
     //MARK: - User interaction
     
     @IBAction func playPauseTapped(_ sender: UIButton) {
+        delegate?.didInteracted(withWidget: true)
         let img = (delegate?.didPrassedPlayPause() ?? false) ? "pause.fill" : "play.fill"
         playPauseBtn.setImage(UIImage(systemName: img), for: .normal)
     }
     
     @IBAction func forwardTapped(_ sender: UIButton) {
+        delegate?.didInteracted(withWidget: true)
         delegate?.didPressedForward()
     }
     
     @IBAction func backwardTapped(_ sender: UIButton) {
+        delegate?.didInteracted(withWidget: true)
         delegate?.didPressedBackward()
     }
 }

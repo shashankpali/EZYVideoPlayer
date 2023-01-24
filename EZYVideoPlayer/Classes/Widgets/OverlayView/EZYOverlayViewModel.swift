@@ -8,10 +8,8 @@
 import Foundation
 import AVFoundation
 
-internal protocol EZYOverlayViewModelProtocol: EZYInteractionProtocol, EZYControlActionDelegate {
+internal protocol EZYOverlayViewModelProtocol: EZYInteractionProtocol {
     init(playerModel: EZYVideoPlayerModelProtocol?, delegate: EZYOverlayProtocol)
-    
-    func playerCurrent(position: Float)
 }
 
 internal final class EZYOverlayViewModel: EZYOverlayViewModelProtocol {
@@ -38,13 +36,9 @@ internal final class EZYOverlayViewModel: EZYOverlayViewModelProtocol {
     }
 }
 
-extension EZYOverlayViewModel {
-    
+extension EZYOverlayViewModel: EZYTopActionDelegate, EZYControlActionDelegate, EZYBottomActionDelegate {
+   
     //MARK: EZYInteractionProtocol
-    func didChangeOrientation(isLandscape: Bool) {
-        playerModel?.delegate?.didChangeOrientation(isLandscape: isLandscape)
-    }
-    
     func didInteracted(withWidget: Bool) {
         guard withWidget == false else {return startTimer()}
         isVisible = !isVisible
@@ -52,23 +46,25 @@ extension EZYOverlayViewModel {
         delegate?.keepVisible(isVisible)
     }
     
-    func playerCurrent(position: Float) {
-        playerModel?.seek(withValue: position)
+    //MARK: EZYTopActionDelegate
+    func didChangeOrientation(isLandscape: Bool) {
+        playerModel?.delegate?.didChangeOrientation(isLandscape: isLandscape)
     }
     
     //MARK: EZYControlActionProtocol
     func didPrassedPlayPause() -> Bool {
-        startTimer()
         return playerModel?.isPlaying() ?? false
     }
     
     func didPressedForward() {
-        startTimer()
         playerModel?.seekForward()
     }
     
     func didPressedBackward() {
-        startTimer()
         playerModel?.seekBackward()
+    }
+    
+    func didChangedSeeker(position: Float) {
+        playerModel?.seek(withValue: position)
     }
 }

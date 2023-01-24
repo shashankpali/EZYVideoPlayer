@@ -60,8 +60,8 @@ internal final class EZYVideoPlayerModel: NSObject, EZYVideoPlayerModelProtocol 
         
         if keyPath == PlayerObserverKey[.status] {
             let status: AVPlayerItem.Status
-            if let statusNumber = change?[.newKey] as? NSNumber {
-                status = AVPlayerItem.Status(rawValue: statusNumber.intValue)!
+            if let statusNumber = change?[.newKey] as? Int {
+                status = AVPlayerItem.Status(rawValue: statusNumber) ?? .unknown
             } else {
                 status = .unknown
             }

@@ -9,5 +9,4 @@ import Foundation
 
 internal protocol EZYInteractionProtocol: AnyObject {
     func didInteracted(withWidget: Bool)
-    func didChangeOrientation(isLandscape: Bool)
 }
