@@ -241,21 +241,21 @@
 				BF35FD37292E4FA9006DF75D /* Extension */,
 				BF35FD3A292E4FA9006DF75D /* EZYVideoPlayer.swift */,
 				BF055C69296BE662000F9D8F /* EZYVideoPlayerModel.swift */,
-				BF35FD35292E4FA9006DF75D /* Protocol */,
+				BF35FD35292E4FA9006DF75D /* Structure */,
 				BF35FD31292E4F79006DF75D /* .gitkeep */,
 			);
 			name = Classes;
 			path = EZYVideoPlayer/Classes;
 			sourceTree = "<group>";
 		};
-		BF35FD35292E4FA9006DF75D /* Protocol */ = {
+		BF35FD35292E4FA9006DF75D /* Structure */ = {
 			isa = PBXGroup;
 			children = (
 				BF35FD36292E4FA9006DF75D /* Protocols.swift */,
 				BF27C4122967EC96009AC7F9 /* Delegates.swift */,
 				BF65CD16297FF25F00AAD178 /* Enums.swift */,
 			);
-			path = Protocol;
+			path = Structure;
 			sourceTree = "<group>";
 		};
 		BF35FD37292E4FA9006DF75D /* Extension */ = {
