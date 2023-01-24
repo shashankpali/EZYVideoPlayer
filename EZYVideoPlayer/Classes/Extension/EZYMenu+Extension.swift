@@ -7,22 +7,18 @@
 
 import UIKit
 
-
-protocol EZYMenuProtocol: AnyObject {
-    func didSelectMenu(item: String, child: String)
-}
-
 extension UIMenu {
-    
-    static func forTitle(_ menuTitle: String, children: [String], delegate: EZYMenuProtocol) -> UIMenu {
-        var actionChildren: [UIAction] = []
         
-        for child in children {
-            actionChildren += [UIAction(title: child, handler: {[menuTitle, child, weak delegate] _ in
-                delegate?.didSelectMenu(item: menuTitle, child: child)
-            })]
+    static func forTitle(_ menuTitle: String, children: [PlayerMenu], delegate: EZYMenuDelegate) -> UIMenu {
+        
+        let actionChildren = children.map { child in
+            UIAction(title: "\(child.rawValue)".capitalized, handler: {[child, weak delegate] _ in
+                delegate?.didSelect(item: child)
+            })
         }
         
-        return UIMenu(title: menuTitle, options: children.count > 0 ? [] : .displayInline, children: actionChildren)
+        let opts : UIMenu.Options
+        if #available(iOS 15.0, *) { opts = .singleSelection } else { opts = .displayInline }
+        return UIMenu(title: menuTitle, options: opts, children: actionChildren)
     }
 }

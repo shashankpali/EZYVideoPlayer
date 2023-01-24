@@ -9,13 +9,13 @@ import UIKit
 import AVFoundation
 
 internal final class EZYBottomView: UIView, EZYBottomViewProtocol {
-   
+    
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
     @IBOutlet weak var seeker: UISlider!
     @IBOutlet weak var menuBtn: UIButton!
     //
-    weak var delegate: EZYOverlayViewModelProtocol?
+    weak var delegate: EZYBottomActionDelegate?
     
     static func setup(on view: UIView) -> EZYBottomViewProtocol {
         
@@ -33,18 +33,18 @@ internal final class EZYBottomView: UIView, EZYBottomViewProtocol {
     //MARK: - User action
     
     @IBAction func seekerChanged(_ sender: UISlider) {
-        delegate?.playerCurrent(position: sender.value)
         delegate?.didInteracted(withWidget: true)
+        delegate?.didChangedSeeker(position: sender.value)
     }
     
     //MARK: - Update UI
     
-    func playerCurrent(position: Float) {
+    func seekerCurrent(position: Float) {
         seeker.value = position
         currentTimeLabel.text = getTimeString(from: position)
     }
     
-    func player(duration: Float) {
+    func seekerMax(duration: Float) {
         seeker.minimumValue = 0
         seeker.maximumValue = duration
         endTimeLabel.text = getTimeString(from: duration)
@@ -68,17 +68,16 @@ internal final class EZYBottomView: UIView, EZYBottomViewProtocol {
     
 }
 
-extension EZYBottomView: EZYMenuProtocol {
+extension EZYBottomView: EZYMenuDelegate {
     
     func addMenu() {
-        let me1 = UIMenu.forTitle("Subtitles", children: ["Off", "English"], delegate: self)
-        let me2 = UIMenu.forTitle("Quality", children: ["480p", "720p"], delegate: self)
-        let main = UIMenu(title: "", options: .displayInline, children: [me1,me2])
+        let item = PlayerMenu.allCases.map{UIMenu.forTitle($0, children: $1, delegate: self)}
+        let main = UIMenu(title: "", options: .displayInline, children: item)
         
         menuBtn.menu = main
     }
     
-    func didSelectMenu(item: String, child: String) {
-        delegate?.didInteracted(withWidget: true)
+    func didSelect(item: PlayerMenu) {
+        print(item)
     }
 }

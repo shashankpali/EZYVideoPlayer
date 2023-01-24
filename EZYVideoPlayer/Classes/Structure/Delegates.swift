@@ -32,6 +32,10 @@ internal protocol EZYControlActionDelegate: AnyObject, EZYInteractionProtocol {
 }
 
 internal protocol EZYBottomActionDelegate: AnyObject, EZYInteractionProtocol {
-    func didSelectMenu(item: String, child: String)
+    func didSelectMenu(item: PlayerMenu)
     func didChangedSeeker(position: Float)
+}
+
+internal protocol EZYMenuDelegate: AnyObject {
+    func didSelect(item: PlayerMenu)
 }
