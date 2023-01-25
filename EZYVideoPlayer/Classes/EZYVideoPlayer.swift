@@ -29,8 +29,9 @@ import AVKit
         self.layoutSubviews()
     }
     
-    public func startWith(mainURL: String) {
+    public func startWith(mainURL: String, title: String) {
         setupPlayer(url: mainURL)
+        self.title = title
         setupComponents()
     }
     

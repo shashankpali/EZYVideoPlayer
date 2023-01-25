@@ -12,7 +12,7 @@ public protocol EZYVideoPlayerProtocol {
     var delegate: EZYVideoPlayerDelegate? { get set }
     
     func startWith(trailerURL: String, thumbnail: UIImage, mute: Bool)
-    func startWith(mainURL: String)
+    func startWith(mainURL: String, title: String)
 }
 
 internal protocol EZYVideoPlayerModelProtocol: AnyObject {
