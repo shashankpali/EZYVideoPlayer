@@ -25,7 +25,6 @@ import AVKit
     }
     
     public func startWith(trailerURL: String, thumbnail: UIImage, mute: Bool) {
-        overlayView?.removeInstance()
         setupPlayer(url: trailerURL)
         self.layoutSubviews()
     }
@@ -41,6 +40,7 @@ import AVKit
     }
     
     private func setupPlayer(url: String) {
+        overlayView?.removeInstance()
         avPlayerLayer?.removeFromSuperlayer()
         model = nil
         
