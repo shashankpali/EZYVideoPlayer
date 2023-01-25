@@ -107,6 +107,10 @@ extension EZYVideoPlayerModel {
         player?.isMuted = mute
     }
     
+    func configureAs(menuItem: PlayerMenu) {
+        delegate?.didSelectMenu(item: menuItem)
+    }
+    
     /// This function allows for seeking through a media player, such as a video or audio player. It takes in a value (withValue) as a parameter, representing the position in seconds that the player should seek to.
     func seek(withValue: Float) {
         // The player's seek method is called with a CMTime object created using the value and timescale of 1000.

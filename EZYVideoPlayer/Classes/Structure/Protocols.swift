@@ -25,6 +25,7 @@ internal protocol EZYVideoPlayerModelProtocol: AnyObject {
     func seek(withValue: Float)
     func isPlaying() -> Bool
     func should(mute: Bool)
+    func configureAs(menuItem: PlayerMenu)
 }
 
 internal protocol EZYInteractionProtocol: AnyObject {

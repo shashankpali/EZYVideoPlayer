@@ -78,6 +78,6 @@ extension EZYBottomView: EZYMenuDelegate {
     }
     
     func didSelect(item: PlayerMenu) {
-        print(item)
+        delegate?.didSelectMenu(item: item)
     }
 }

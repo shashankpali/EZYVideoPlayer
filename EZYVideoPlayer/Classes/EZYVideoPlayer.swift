@@ -88,6 +88,20 @@ extension EZYVideoPlayer: EZYVideoPlayerDelegate {
     public func didChangeOrientation(isLandscape: Bool) {
         delegate?.didChangeOrientation(isLandscape: isLandscape)
     }
+    
+    public func didSelectMenu(item: PlayerMenu) {
+        switch item {
+        case .fit:
+            avPlayerLayer?.videoGravity = .resizeAspect
+        case .fill:
+            avPlayerLayer?.videoGravity = .resizeAspectFill
+        case .stretch:
+            avPlayerLayer?.videoGravity = .resize
+        default:
+            break
+        }
+        layoutSubviews()
+    }
 
 }
 

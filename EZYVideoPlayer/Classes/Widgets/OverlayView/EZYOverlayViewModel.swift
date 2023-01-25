@@ -60,6 +60,11 @@ extension EZYOverlayViewModel: EZYTopActionDelegate, EZYControlActionDelegate, E
         playerModel?.seekBackward()
     }
     
+    //MARK: EZYBottomActionDelegate
+    func didSelectMenu(item: PlayerMenu) {
+        playerModel?.configureAs(menuItem: item)
+    }
+    
     func didChangedSeeker(position: Float) {
         playerModel?.seek(withValue: position)
     }

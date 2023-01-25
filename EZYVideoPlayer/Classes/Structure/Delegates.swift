@@ -12,6 +12,7 @@ public protocol EZYVideoPlayerDelegate: AnyObject {
     func playerDidChanged(position: Float)
     func player(duration: Float)
     func didChangeOrientation(isLandscape: Bool)
+    func didSelectMenu(item: PlayerMenu)
 }
 
 public extension EZYVideoPlayerDelegate {
@@ -19,6 +20,7 @@ public extension EZYVideoPlayerDelegate {
     func playerDidChanged(position: Float) {}
     func player(duration: Float) {}
     func didChangeOrientation(isLandscape: Bool) {}
+    func didSelectMenu(item: PlayerMenu) {}
 }
 
 internal protocol EZYTopActionDelegate: AnyObject, EZYInteractionProtocol {
