@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum PlayerStatus {
+public enum PlayerStatus: Equatable {
     case  buffering, buffered, playing, paused, ended, seekBackward, seekForward, failed(errorMsg: String?), unknown
 }
 
