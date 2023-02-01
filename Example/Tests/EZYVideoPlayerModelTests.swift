@@ -39,18 +39,18 @@ class EZYVideoPlayerModelTests: XCTestCase {
         waitForExpectations(timeout: 5)
     }
     
-    func test_Status_Buffering() {
+    func testStatusBuffering() {
         // test that the status changed when delegate set
         XCTAssertEqual(PlayerStatus.buffering, mockDelegate.didChangedPlayerStatus)
     }
     
-    func test_Status_Buffered() {
+    func testStatusBuffered() {
         // test that the delegate method is called when the status changes
         playerModel.observeValue(forKeyPath: PlayerObserverKey[.status], of: playerModel.player?.currentItem, change: [.newKey: AVPlayerItem.Status.readyToPlay.rawValue], context: nil)
         XCTAssertEqual(PlayerStatus.buffered, mockDelegate.didChangedPlayerStatus)
     }
     
-    func test_Status_Duration() {
+    func testStatusDuration() {
         let exp = expectation(description: "duration")
         playerModel.observeValue(forKeyPath: PlayerObserverKey[.duration], of: playerModel.player?.currentItem, change: [.newKey: 10], context: nil)
         mockDelegate.didReceivedDuration { status in
@@ -60,7 +60,7 @@ class EZYVideoPlayerModelTests: XCTestCase {
         waitForExpectations(timeout: 5)
     }
     
-    func test_Status_Changed() {
+    func testStatusChanged() {
         playerModel.seek(withValue: 10)
         let exp = expectation(description: "changed")
         mockDelegate.didChanged { status in
@@ -70,7 +70,7 @@ class EZYVideoPlayerModelTests: XCTestCase {
         waitForExpectations(timeout: 5)
     }
     
-    func test_Status_Playing_And_Paused() {
+    func testStatusPlayingAndPaused() {
         let _ = playerModel.isPlaying()
         XCTAssertEqual(PlayerStatus.paused, mockDelegate.didChangedPlayerStatus)
         
@@ -78,22 +78,22 @@ class EZYVideoPlayerModelTests: XCTestCase {
         XCTAssertEqual(PlayerStatus.playing, mockDelegate.didChangedPlayerStatus)
     }
     
-    func test_Status_SeekForward() {
+    func testStatusSeekForward() {
         playerModel.seekForward()
         XCTAssertEqual(PlayerStatus.seekForward, mockDelegate.didChangedPlayerStatus)
     }
     
-    func test_Status_SeekBackward() {
+    func testStatusSeekBackward() {
         playerModel.seekBackward()
         XCTAssertEqual(PlayerStatus.seekBackward, mockDelegate.didChangedPlayerStatus)
     }
     
-    func test_Status_Configure() {
+    func testStatusConfigure() {
         playerModel.configureAs(menuItem: .fit)
         XCTAssertEqual(PlayerMenu.fit, mockDelegate.selectItem)
     }
     
-    func test_layer_Mute() {
+    func testMute() {
         playerModel.should(mute: true)
         XCTAssertTrue(playerModel.player!.isMuted)
     }
