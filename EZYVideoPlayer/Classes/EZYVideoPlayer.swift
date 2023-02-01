@@ -101,6 +101,7 @@ extension EZYVideoPlayer: EZYVideoPlayerDelegate {
         default:
             break
         }
+        delegate?.didSelectMenu(item: item)
         layoutSubviews()
     }
 
