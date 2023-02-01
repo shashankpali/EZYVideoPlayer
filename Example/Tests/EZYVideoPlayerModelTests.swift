@@ -31,6 +31,12 @@ class EZYVideoPlayerModelTests: XCTestCase {
         // test that the time observer is added
         playerModel.observerCurrentTime()
         XCTAssertNotNil(playerModel.timeObserver)
+        let exp = expectation(description: "changed")
+        mockDelegate.didChanged { status in
+            exp.fulfill()
+            XCTAssertTrue(status)
+        }
+        waitForExpectations(timeout: 5)
     }
     
     func test_Status_Buffering() {
