@@ -26,6 +26,7 @@ import AVKit
     
     public func startWith(trailerURL: String, thumbnail: UIImage, mute: Bool) {
         setupPlayer(url: trailerURL)
+        model?.should(mute: mute)
         self.layoutSubviews()
     }
     

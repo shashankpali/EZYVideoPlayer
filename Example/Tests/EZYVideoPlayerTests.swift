@@ -35,6 +35,11 @@ class EZYVideoPlayerTests: XCTestCase {
         XCTAssertNotNil(videoPlayer)
     }
     
+    func testStartWithTrailer() {
+        videoPlayer.startWith(trailerURL: "", thumbnail: UIImage(), mute: true)
+        XCTAssertNotNil(videoPlayer)
+    }
+    
     func testDidChangedPlayerStatus() {
         videoPlayer.didChangedPlayer(status: .playing)
         XCTAssertTrue(mockDelegate.didPlayerStatusChanged)
