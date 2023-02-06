@@ -50,8 +50,8 @@ internal final class EZYTopView: UIView, EZYTopViewProtocol {
             let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
             windowScene?.requestGeometryUpdate(.iOS(interfaceOrientations: isLandscape ? .landscape : .portrait))
         } else {
-            let o = isLandscape ? UIInterfaceOrientation.landscapeRight : UIInterfaceOrientation.portrait
-            UIDevice.current.setValue(Int(o.rawValue), forKey: "orientation")
+            let orientation = isLandscape ? UIInterfaceOrientation.landscapeRight : UIInterfaceOrientation.portrait
+            UIDevice.current.setValue(Int(orientation.rawValue), forKey: "orientation")
         }
     }
     
