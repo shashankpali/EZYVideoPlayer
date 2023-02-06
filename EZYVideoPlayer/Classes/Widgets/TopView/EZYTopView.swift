@@ -11,7 +11,7 @@ internal final class EZYTopView: UIView, EZYTopViewProtocol {
     
     @IBOutlet weak var expandBtn: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
-    //
+    
     weak var delegate: EZYTopActionDelegate?
     var isLandscape = false
     

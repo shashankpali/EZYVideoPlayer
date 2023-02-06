@@ -14,7 +14,7 @@ internal final class EZYBottomView: UIView, EZYBottomViewProtocol {
     @IBOutlet weak var endTimeLabel: UILabel!
     @IBOutlet weak var seeker: UISlider!
     @IBOutlet weak var menuBtn: UIButton!
-    //
+    
     weak var delegate: EZYBottomActionDelegate?
     
     static func setup(on view: UIView) -> EZYBottomViewProtocol {
