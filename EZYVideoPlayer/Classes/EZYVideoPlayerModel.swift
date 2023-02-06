@@ -96,7 +96,7 @@ extension EZYVideoPlayerModel {
         if shouldPlay {
             player?.play()
             delegate?.didChangedPlayer(status: .playing)
-        }else {
+        } else {
             player?.pause()
             delegate?.didChangedPlayer(status: .paused)
         }
