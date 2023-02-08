@@ -1,0 +1,6 @@
+framework module Pods_EZYVideoPlayer_Example {
+  umbrella header "Pods-EZYVideoPlayer_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

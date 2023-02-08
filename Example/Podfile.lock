@@ -1,0 +1,16 @@
+PODS:
+  - EZYVideoPlayer (0.1.0)
+
+DEPENDENCIES:
+  - EZYVideoPlayer (from `../`)
+
+EXTERNAL SOURCES:
+  EZYVideoPlayer:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  EZYVideoPlayer: ed653ae26c3e6c2971829d913c52c078966aa41d
+
+PODFILE CHECKSUM: 871248e5ac3ae95dc57d7197a647ea3d2391d33f
+
+COCOAPODS: 1.11.3

@@ -1,0 +1,22 @@
+{
+  "name": "EZYVideoPlayer",
+  "version": "0.1.0",
+  "summary": "A short description of EZYVideoPlayer.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Shashank Pali/EZYVideoPlayer",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Shashank Pali": "shank.pali@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/Shashank Pali/EZYVideoPlayer.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "EZYVideoPlayer/Classes/**/*"
+}

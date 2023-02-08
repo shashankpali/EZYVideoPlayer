@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EZYVideoPlayer'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of EZYVideoPlayer.'
+  s.version          = '0.3.0'
+  s.summary          = 'EZYVideoPlayer helps you to create a HLS video player without writing a single line of code.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,19 +18,20 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  `EZYVideoPlayer will do all the heavy lifting that we required to create the HLS video player. It has all the basic and advanced functionality that a modern video player has. Just drag and drop UIView and inhirite it from EZYVideoPlayer this is all that we need to do.`
                        DESC
 
-  s.homepage         = 'https://github.com/Shashank Pali/EZYVideoPlayer'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://github.com/shashankpali/EZYVideoPlayer'
+   s.screenshots     = 'https://user-images.githubusercontent.com/11850361/203582368-0cd2c369-3408-4e47-b859-9364ffbc030d.png'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Shashank Pali' => 'shank.pali@gmail.com' }
-  s.source           = { :git => 'https://github.com/Shashank Pali/EZYVideoPlayer.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/shashankpali/EZYVideoPlayer.git', :tag => s.version }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '10.0'
-
+  s.ios.deployment_target = '14.0'
+  s.swift_version = '5.0'
   s.source_files = 'EZYVideoPlayer/Classes/**/*'
+  
   
   # s.resource_bundles = {
   #   'EZYVideoPlayer' => ['EZYVideoPlayer/Assets/*.png']
