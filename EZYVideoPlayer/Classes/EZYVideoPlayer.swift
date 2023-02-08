@@ -11,7 +11,7 @@ import AVKit
 
 @IBDesignable public class EZYVideoPlayer: UIView, EZYVideoPlayerProtocol {
     
-    @IBInspectable var title: String = "Video title will be showen here"
+    @IBInspectable var title: String = "Video title will be shown here"
     @IBInspectable var videoURL: String = "http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8"
     
     public weak var delegate: EZYVideoPlayerDelegate?

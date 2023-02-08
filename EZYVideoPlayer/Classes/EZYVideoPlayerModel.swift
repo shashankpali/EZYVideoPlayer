@@ -10,6 +10,7 @@ import AVFoundation
 
 internal final class EZYVideoPlayerModel: NSObject, EZYVideoPlayerModelProtocol {
     
+    let seekDuration = 10.0
     var shouldPlay = true //default player will start playing when buffered
     var timeObserver: Any?
     weak var player: AVPlayer?
@@ -96,7 +97,7 @@ extension EZYVideoPlayerModel {
         if shouldPlay {
             player?.play()
             delegate?.didChangedPlayer(status: .playing)
-        }else {
+        } else {
             player?.pause()
             delegate?.didChangedPlayer(status: .paused)
         }
@@ -126,8 +127,8 @@ extension EZYVideoPlayerModel {
         // The seek function is called with a closure that calculates the new time to seek to by adding 10 seconds
         // to the current time. The closure ensures that the new time is not more than 10 seconds from the end of the duration
         seek { duration, currentTime in
-            let newTime = currentTime + 10.0
-            return newTime < (duration - 10) ? newTime : duration
+            let newTime = currentTime + seekDuration
+            return newTime < (duration - seekDuration) ? newTime : duration
         }
     }
     
@@ -138,7 +139,7 @@ extension EZYVideoPlayerModel {
         // The seek function is called with a closure that calculates the new time to seek to by subtracting 10 seconds
         // from the current time. The closure ensures that the new time is not less than 0 seconds
         seek { _, currentTime in
-            let newTime = currentTime - 10.0
+            let newTime = currentTime - seekDuration
             return newTime < 0 ? 0 : newTime
         }
     }
