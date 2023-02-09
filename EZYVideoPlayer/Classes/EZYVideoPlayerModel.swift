@@ -72,7 +72,7 @@ internal final class EZYVideoPlayerModel: NSObject, EZYVideoPlayerModelProtocol 
         let interval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         let mainQueue = DispatchQueue.main
         // add the observer, using a closure as the callback function
-        timeObserver = player?.addPeriodicTimeObserver(forInterval: interval, queue: mainQueue, using: { [weak self] time in
+        timeObserver = player?.addPeriodicTimeObserver(forInterval: interval, queue: mainQueue, using: { [weak self] _ in
             guard let currentItem = self?.player?.currentItem else {return}
             // call delegate method to pass the current time
             self?.delegate?.playerDidChanged(position: Float(currentItem.currentTime().seconds))
