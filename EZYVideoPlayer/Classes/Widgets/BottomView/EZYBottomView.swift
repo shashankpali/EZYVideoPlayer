@@ -30,14 +30,14 @@ internal final class EZYBottomView: UIView, EZYBottomViewProtocol {
         return bottom
     }
     
-    //MARK: - User action
+    // MARK: - User action
     
     @IBAction func seekerChanged(_ sender: UISlider) {
         delegate?.didInteracted(withWidget: true)
         delegate?.didChangedSeeker(position: sender.value)
     }
     
-    //MARK: - Update UI
+    // MARK: - Update UI
     
     func seekerCurrent(position: Float) {
         seeker.value = position

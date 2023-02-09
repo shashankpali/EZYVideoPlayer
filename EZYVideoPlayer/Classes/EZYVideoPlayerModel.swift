@@ -11,7 +11,7 @@ import AVFoundation
 internal final class EZYVideoPlayerModel: NSObject, EZYVideoPlayerModelProtocol {
     
     let seekDuration = 10.0
-    var shouldPlay = true //default player will start playing when buffered
+    var shouldPlay = true // default player will start playing when buffered
     var timeObserver: Any?
     weak var player: AVPlayer?
     weak var delegate: EZYVideoPlayerDelegate? {
@@ -88,7 +88,7 @@ internal final class EZYVideoPlayerModel: NSObject, EZYVideoPlayerModelProtocol 
     }
 }
 
-//MARK: - Actions
+// MARK: - Actions
 
 extension EZYVideoPlayerModel {
     

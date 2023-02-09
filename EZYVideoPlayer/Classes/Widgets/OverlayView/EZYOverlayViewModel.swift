@@ -34,7 +34,7 @@ internal final class EZYOverlayViewModel: EZYOverlayViewModelProtocol {
 
 extension EZYOverlayViewModel: EZYTopActionDelegate, EZYControlActionDelegate, EZYBottomActionDelegate {
    
-    //MARK: EZYInteractionProtocol
+    // MARK: EZYInteractionProtocol
     func didInteracted(withWidget: Bool) {
         guard withWidget == false else {return startTimer()}
         isVisible = !isVisible
@@ -42,12 +42,12 @@ extension EZYOverlayViewModel: EZYTopActionDelegate, EZYControlActionDelegate, E
         delegate?.keepVisible(isVisible)
     }
     
-    //MARK: EZYTopActionDelegate
+    // MARK: EZYTopActionDelegate
     func didChangeOrientation(isLandscape: Bool) {
         playerModel?.delegate?.didChangeOrientation(isLandscape: isLandscape)
     }
     
-    //MARK: EZYControlActionProtocol
+    // MARK: EZYControlActionProtocol
     func didPrassedPlayPause() -> Bool {
         return playerModel?.isPlaying() ?? false
     }
@@ -60,7 +60,7 @@ extension EZYOverlayViewModel: EZYTopActionDelegate, EZYControlActionDelegate, E
         playerModel?.seekBackward()
     }
     
-    //MARK: EZYBottomActionDelegate
+    // MARK: EZYBottomActionDelegate
     func didSelectMenu(item: PlayerMenu) {
         playerModel?.configureAs(menuItem: item)
     }

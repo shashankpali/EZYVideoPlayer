@@ -25,7 +25,7 @@ internal final class EZYControlsView: UIView, EZYControlProtocol {
         return controls
     }
     
-    //MARK: - User interaction
+    // MARK: - User interaction
     
     @IBAction func playPauseTapped(_ sender: UIButton) {
         delegate?.didInteracted(withWidget: true)

@@ -83,7 +83,7 @@ class EZYOverlayViewModelTests: XCTestCase {
     }
 }
 
-//Mocks
+// Mocks
 class EZYVideoPlayerModelMock: EZYVideoPlayerModelProtocol, EZYVideoPlayerDelegate {
     var player: AVPlayer?
     var delegate: EZYVideoPlayerDelegate?
