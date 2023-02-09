@@ -60,7 +60,7 @@ internal final class EZYBottomView: UIView, EZYBottomViewProtocol {
         if hours > 0 {
             // format the string to include hours if greater than or equal to one hour
             return String(format: "%d:%02d:%02d", hours, minutes, seconds)
-        }else {
+        } else {
             // format the string without hours if less than one hour
             return String(format: "%02d:%02d", minutes, seconds)
         }

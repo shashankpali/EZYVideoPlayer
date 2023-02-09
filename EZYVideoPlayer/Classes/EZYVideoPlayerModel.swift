@@ -58,7 +58,7 @@ internal final class EZYVideoPlayerModel: NSObject, EZYVideoPlayerModelProtocol 
             @unknown default:
                 delegate?.didChangedPlayer(status: .unknown)
             }
-        }else if keyPath == PlayerObserverKey[.duration], let duration = player?.currentItem?.duration.seconds, duration > 0.0 {
+        } else if keyPath == PlayerObserverKey[.duration], let duration = player?.currentItem?.duration.seconds, duration > 0.0 {
             delegate?.player(duration: Float(duration))
             observerCurrentTime()
         }
