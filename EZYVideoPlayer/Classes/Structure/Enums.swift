@@ -12,11 +12,11 @@ public enum PlayerStatus: Equatable {
 }
 
 public enum PlayerMenu: String {
-    case fit, fill, stretch, hd = "720px", sd = "480px", off, english
+    case fit, fill, stretch, high = "720px", standard = "480px", off, english
     
     static var allCases: [(title: String, item: [PlayerMenu])] {
         return [("Subtitle", [.off, .english]),
-                ("Quality", [.hd, .sd]),
+                ("Quality", [.high, .standard]),
                 ("Aspect Ratio", [.fit, .fill, .stretch])]
     }
 }

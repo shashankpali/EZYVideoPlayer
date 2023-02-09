@@ -151,8 +151,8 @@ class EZYOverlayDelegateMock: EZYOverlayProtocol {
     func keepVisible(_ visible: Bool) {
         keepVisibleCalled = true
         keepVisibleValue = visible
-        if let c = timerCallback {
-            c()
+        if let callback = timerCallback {
+            callback()
             timerCallback = nil
         }
     }

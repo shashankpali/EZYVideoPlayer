@@ -122,8 +122,8 @@ class MockPlayerDelegate: EZYVideoPlayerDelegate {
     }
     
     func commonCallback() {
-        if let c = didChanged {
-            c(true)
+        if let callback = didChanged {
+            callback(true)
             didChanged = nil
         }
     }

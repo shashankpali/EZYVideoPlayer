@@ -28,8 +28,8 @@ internal final class EZYVideoPlayerModel: NSObject, EZYVideoPlayerModelProtocol 
         let requiredAssetKeys = ["playable", "hasProtectedContent"]
         let playerItem = AVPlayerItem(asset: asset, automaticallyLoadedAssetKeys: requiredAssetKeys)
         
-        let p = AVPlayer(playerItem: playerItem)
-        self.player = p
+        let player = AVPlayer(playerItem: playerItem)
+        self.player = player
         observePlayer()
     }
     
@@ -82,8 +82,8 @@ internal final class EZYVideoPlayerModel: NSObject, EZYVideoPlayerModelProtocol 
     deinit {
         player?.currentItem?.removeObserver(self, forKeyPath: PlayerObserverKey[.status])
         player?.currentItem?.removeObserver(self, forKeyPath: PlayerObserverKey[.duration])
-        guard let t = timeObserver else {return}
-        player?.removeTimeObserver(t)
+        guard let observer = timeObserver else {return}
+        player?.removeTimeObserver(observer)
         timeObserver = nil
     }
 }

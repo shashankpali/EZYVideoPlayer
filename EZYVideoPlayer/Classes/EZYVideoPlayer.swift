@@ -50,8 +50,8 @@ import AVKit
         model?.delegate = self
         guard let player = model?.player else {return}
         
-        let pl = AVPlayerLayer(player: player)
-        avPlayerLayer = pl
+        let playerLayer = AVPlayerLayer(player: player)
+        avPlayerLayer = playerLayer
         avPlayerLayer?.videoGravity = .resizeAspect
         avPlayerLayer?.backgroundColor = UIColor(white: 0, alpha: 1).cgColor
         
@@ -60,8 +60,8 @@ import AVKit
     }
     
     private func setupComponents() {
-        let o = EZYOverlayView()
-        overlayView = o
+        let view = EZYOverlayView()
+        overlayView = view
         overlayView?.setup(on: self, playerModel: model, andTitle: title)
     }
     
