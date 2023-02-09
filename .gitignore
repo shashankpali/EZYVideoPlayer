@@ -17,6 +17,7 @@ xcuserdata/
 DerivedData
 *.hmap
 *.ipa
+Example/.swiftlint.yml
 
 # Bundler
 .bundle
