@@ -55,7 +55,7 @@ import AVKit
         avPlayerLayer?.videoGravity = .resizeAspect
         avPlayerLayer?.backgroundColor = UIColor(white: 0, alpha: 1).cgColor
         
-        guard (avPlayerLayer != nil) else { return }
+        guard avPlayerLayer != nil else { return }
         layer.addSublayer(avPlayerLayer!)
     }
     
