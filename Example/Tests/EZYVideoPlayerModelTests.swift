@@ -71,10 +71,10 @@ class EZYVideoPlayerModelTests: XCTestCase {
     }
     
     func testStatusPlayingAndPaused() {
-        let _ = playerModel.isPlaying()
+        _ = playerModel.isPlaying()
         XCTAssertEqual(PlayerStatus.paused, mockDelegate.didChangedPlayerStatus)
         
-        let _ = playerModel.isPlaying()
+        _ = playerModel.isPlaying()
         XCTAssertEqual(PlayerStatus.playing, mockDelegate.didChangedPlayerStatus)
     }
     
