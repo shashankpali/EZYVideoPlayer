@@ -71,7 +71,9 @@ internal final class EZYBottomView: UIView, EZYBottomViewProtocol {
 extension EZYBottomView: EZYMenuDelegate {
     
     func addMenu() {
-        let item = PlayerMenu.allCases.map{UIMenu.forTitle($0, children: $1, delegate: self)}
+        let item = PlayerMenu.allCases.map {
+            UIMenu.forTitle($0, children: $1, delegate: self)
+        }
         let main = UIMenu(title: "", options: .displayInline, children: item)
         
         menuBtn.menu = main

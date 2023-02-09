@@ -8,8 +8,7 @@
 import UIKit
 
 extension UIView {
-    static func instantiate(withOwner: Any?) -> Self
-    {
+    static func instantiate(withOwner: Any?) -> Self {
         let nib = UINib(nibName: "\(Self.self)", bundle: Bundle(for: self))
 
         guard let view = nib.instantiate(withOwner: withOwner, options: nil)
