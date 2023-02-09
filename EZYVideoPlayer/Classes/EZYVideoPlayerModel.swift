@@ -38,7 +38,7 @@ internal final class EZYVideoPlayerModel: NSObject, EZYVideoPlayerModelProtocol 
         player?.currentItem?.addObserver(self, forKeyPath: PlayerObserverKey[.duration], options: [.new, .initial], context: nil)
     }
 
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         
         if keyPath == PlayerObserverKey[.status] {
             let status: AVPlayerItem.Status

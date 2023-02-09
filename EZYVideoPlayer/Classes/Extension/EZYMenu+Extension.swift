@@ -17,7 +17,7 @@ extension UIMenu {
             })
         }
         
-        let opts : UIMenu.Options
+        let opts: UIMenu.Options
         if #available(iOS 15.0, *) { opts = .singleSelection } else { opts = .displayInline }
         return UIMenu(title: menuTitle, options: opts, children: actionChildren)
     }

@@ -11,7 +11,7 @@ internal final class EZYControlsView: UIView, EZYControlProtocol {
 
     @IBOutlet weak var playPauseBtn: UIButton!
     
-    weak var delegate : EZYControlActionDelegate?
+    weak var delegate: EZYControlActionDelegate?
     
     static func setup(on view: UIView) -> EZYControlProtocol {
         

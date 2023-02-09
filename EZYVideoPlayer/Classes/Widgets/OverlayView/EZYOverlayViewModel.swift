@@ -10,7 +10,7 @@ import AVFoundation
 
 internal final class EZYOverlayViewModel: EZYOverlayViewModelProtocol {
     
-    weak var playerModel : EZYVideoPlayerModelProtocol?
+    weak var playerModel: EZYVideoPlayerModelProtocol?
     weak var delegate: EZYOverlayProtocol?
     weak var debounceTimer: Timer?
     var isVisible = true

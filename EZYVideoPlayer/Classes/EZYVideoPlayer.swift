@@ -18,7 +18,7 @@ import AVKit
     private weak var avPlayerLayer: AVPlayerLayer?
     private var model: EZYVideoPlayerModelProtocol?
     
-    private weak var overlayView : EZYOverlayProtocol?
+    private weak var overlayView: EZYOverlayProtocol?
     
     public override func awakeFromNib() {
         super.awakeFromNib()
