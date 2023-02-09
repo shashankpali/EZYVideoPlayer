@@ -142,9 +142,9 @@ class EZYOverlayDelegateMock: EZYOverlayProtocol {
 
     var keepVisibleCalled = false
     var keepVisibleValue = false
-    var timerCallback: (() -> ())?
+    var timerCallback: (() -> Void)?
     
-    func timer(callback: @escaping () -> ()) {
+    func timer(callback: @escaping () -> Void) {
         timerCallback = callback
     }
     
