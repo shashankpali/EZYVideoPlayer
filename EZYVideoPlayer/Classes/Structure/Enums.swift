@@ -22,7 +22,7 @@ public enum PlayerMenu: String {
 }
 
 internal enum PlayerObserverKey: String {
-    case status = "status", duration = "duration"
+    case status, duration
     
     static subscript(key: PlayerObserverKey) -> String { return key.rawValue }
 }
