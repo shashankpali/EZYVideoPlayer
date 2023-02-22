@@ -13,7 +13,9 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		BF29AC292989320A00811224 /* EZYVideoPlayerModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF29AC282989320A00811224 /* EZYVideoPlayerModelTests.swift */; };
+		BF29AC2B2989337900811224 /* EZYOverlayViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF29AC2A2989337900811224 /* EZYOverlayViewModelTests.swift */; };
+		BF4309AD298A46A800827DD6 /* EZYVideoPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4309AC298A46A800827DD6 /* EZYVideoPlayerTests.swift */; };
 		D0E6E29B8656D6C99F5451FC /* Pods_EZYVideoPlayer_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF0140295748BA905B416307 /* Pods_EZYVideoPlayer_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,9 +44,11 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* EZYVideoPlayer_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EZYVideoPlayer_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		903B4DC445BEE96C6F1B5B6F /* Pods_EZYVideoPlayer_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EZYVideoPlayer_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA3023A6DE7AC8DDDE246212 /* EZYVideoPlayer.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = EZYVideoPlayer.podspec; path = ../EZYVideoPlayer.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BF29AC282989320A00811224 /* EZYVideoPlayerModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZYVideoPlayerModelTests.swift; sourceTree = "<group>"; };
+		BF29AC2A2989337900811224 /* EZYOverlayViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZYOverlayViewModelTests.swift; sourceTree = "<group>"; };
+		BF4309AC298A46A800827DD6 /* EZYVideoPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZYVideoPlayerTests.swift; sourceTree = "<group>"; };
 		E59768DBF58D76DEC75CCC8A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		FF0140295748BA905B416307 /* Pods_EZYVideoPlayer_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EZYVideoPlayer_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -124,7 +128,9 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				BF29AC282989320A00811224 /* EZYVideoPlayerModelTests.swift */,
+				BF29AC2A2989337900811224 /* EZYOverlayViewModelTests.swift */,
+				BF4309AC298A46A800827DD6 /* EZYVideoPlayerTests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -339,7 +345,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				BF4309AD298A46A800827DD6 /* EZYVideoPlayerTests.swift in Sources */,
+				BF29AC2B2989337900811224 /* EZYOverlayViewModelTests.swift in Sources */,
+				BF29AC292989320A00811224 /* EZYVideoPlayerModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

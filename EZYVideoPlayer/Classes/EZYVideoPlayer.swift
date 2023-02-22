@@ -26,6 +26,7 @@ import AVKit
     
     public func startWith(trailerURL: String, thumbnail: UIImage, mute: Bool) {
         setupPlayer(url: trailerURL)
+        model?.should(mute: mute)
         self.layoutSubviews()
     }
     
@@ -101,6 +102,7 @@ extension EZYVideoPlayer: EZYVideoPlayerDelegate {
         default:
             break
         }
+        delegate?.didSelectMenu(item: item)
         layoutSubviews()
     }
 
