@@ -83,7 +83,7 @@ class EZYOverlayViewModelTests: XCTestCase {
     }
 }
 
-//Mocks
+// Mocks
 class EZYVideoPlayerModelMock: EZYVideoPlayerModelProtocol, EZYVideoPlayerDelegate {
     var player: AVPlayer?
     var delegate: EZYVideoPlayerDelegate?
@@ -142,17 +142,17 @@ class EZYOverlayDelegateMock: EZYOverlayProtocol {
 
     var keepVisibleCalled = false
     var keepVisibleValue = false
-    var timerCallback: (() -> ())?
+    var timerCallback: (() -> Void)?
     
-    func timer(callback: @escaping () -> ()) {
+    func timer(callback: @escaping () -> Void) {
         timerCallback = callback
     }
     
     func keepVisible(_ visible: Bool) {
         keepVisibleCalled = true
         keepVisibleValue = visible
-        if let c = timerCallback {
-            c()
+        if let callback = timerCallback {
+            callback()
             timerCallback = nil
         }
     }

@@ -30,7 +30,7 @@ internal final class EZYTopView: UIView, EZYTopViewProtocol {
         return topView
     }
     
-    //MARK: - User actions
+    // MARK: - User actions
     
     func observeOrientation() {
         NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: UIDevice.orientationDidChangeNotification, object: nil)

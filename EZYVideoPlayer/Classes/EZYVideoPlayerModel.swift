@@ -11,7 +11,7 @@ import AVFoundation
 internal final class EZYVideoPlayerModel: NSObject, EZYVideoPlayerModelProtocol {
     
     let seekDuration = 10.0
-    var shouldPlay = true //default player will start playing when buffered
+    var shouldPlay = true // default player will start playing when buffered
     var timeObserver: Any?
     weak var player: AVPlayer?
     weak var delegate: EZYVideoPlayerDelegate? {
@@ -28,8 +28,8 @@ internal final class EZYVideoPlayerModel: NSObject, EZYVideoPlayerModelProtocol 
         let requiredAssetKeys = ["playable", "hasProtectedContent"]
         let playerItem = AVPlayerItem(asset: asset, automaticallyLoadedAssetKeys: requiredAssetKeys)
         
-        let p = AVPlayer(playerItem: playerItem)
-        self.player = p
+        let player = AVPlayer(playerItem: playerItem)
+        self.player = player
         observePlayer()
     }
     
@@ -38,7 +38,7 @@ internal final class EZYVideoPlayerModel: NSObject, EZYVideoPlayerModelProtocol 
         player?.currentItem?.addObserver(self, forKeyPath: PlayerObserverKey[.duration], options: [.new, .initial], context: nil)
     }
 
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         
         if keyPath == PlayerObserverKey[.status] {
             let status: AVPlayerItem.Status
@@ -58,7 +58,7 @@ internal final class EZYVideoPlayerModel: NSObject, EZYVideoPlayerModelProtocol 
             @unknown default:
                 delegate?.didChangedPlayer(status: .unknown)
             }
-        }else if keyPath == PlayerObserverKey[.duration], let duration = player?.currentItem?.duration.seconds, duration > 0.0 {
+        } else if keyPath == PlayerObserverKey[.duration], let duration = player?.currentItem?.duration.seconds, duration > 0.0 {
             delegate?.player(duration: Float(duration))
             observerCurrentTime()
         }
@@ -72,7 +72,7 @@ internal final class EZYVideoPlayerModel: NSObject, EZYVideoPlayerModelProtocol 
         let interval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         let mainQueue = DispatchQueue.main
         // add the observer, using a closure as the callback function
-        timeObserver = player?.addPeriodicTimeObserver(forInterval: interval, queue: mainQueue, using: { [weak self] time in
+        timeObserver = player?.addPeriodicTimeObserver(forInterval: interval, queue: mainQueue, using: { [weak self] _ in
             guard let currentItem = self?.player?.currentItem else {return}
             // call delegate method to pass the current time
             self?.delegate?.playerDidChanged(position: Float(currentItem.currentTime().seconds))
@@ -82,13 +82,13 @@ internal final class EZYVideoPlayerModel: NSObject, EZYVideoPlayerModelProtocol 
     deinit {
         player?.currentItem?.removeObserver(self, forKeyPath: PlayerObserverKey[.status])
         player?.currentItem?.removeObserver(self, forKeyPath: PlayerObserverKey[.duration])
-        guard let t = timeObserver else {return}
-        player?.removeTimeObserver(t)
+        guard let observer = timeObserver else {return}
+        player?.removeTimeObserver(observer)
         timeObserver = nil
     }
 }
 
-//MARK: - Actions
+// MARK: - Actions
 
 extension EZYVideoPlayerModel {
     

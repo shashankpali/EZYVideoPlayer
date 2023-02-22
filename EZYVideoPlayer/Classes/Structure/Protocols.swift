@@ -34,7 +34,7 @@ internal protocol EZYInteractionProtocol: AnyObject {
 
 internal protocol EZYOverlayProtocol: AnyObject, EZYInteractionProtocol {
     func setup(on view: UIView, playerModel: EZYVideoPlayerModelProtocol?, andTitle: String)
-    func keepVisible(_ visible:Bool)
+    func keepVisible(_ visible: Bool)
     func playerCurrent(position: Float)
     func player(duration: Float)
     func removeInstance()
@@ -52,7 +52,7 @@ internal protocol EZYTopViewProtocol {
 }
 
 internal protocol EZYControlProtocol {
-    var delegate : EZYControlActionDelegate? { get set }
+    var delegate: EZYControlActionDelegate? { get set }
     static func setup(on view: UIView) -> EZYControlProtocol
 }
 

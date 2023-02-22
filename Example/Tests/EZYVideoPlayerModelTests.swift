@@ -71,10 +71,10 @@ class EZYVideoPlayerModelTests: XCTestCase {
     }
     
     func testStatusPlayingAndPaused() {
-        let _ = playerModel.isPlaying()
+        _ = playerModel.isPlaying()
         XCTAssertEqual(PlayerStatus.paused, mockDelegate.didChangedPlayerStatus)
         
-        let _ = playerModel.isPlaying()
+        _ = playerModel.isPlaying()
         XCTAssertEqual(PlayerStatus.playing, mockDelegate.didChangedPlayerStatus)
     }
     
@@ -122,8 +122,8 @@ class MockPlayerDelegate: EZYVideoPlayerDelegate {
     }
     
     func commonCallback() {
-        if let c = didChanged {
-            c(true)
+        if let callback = didChanged {
+            callback(true)
             didChanged = nil
         }
     }
@@ -136,4 +136,3 @@ class MockPlayerDelegate: EZYVideoPlayerDelegate {
         didChanged = callback
     }
 }
-

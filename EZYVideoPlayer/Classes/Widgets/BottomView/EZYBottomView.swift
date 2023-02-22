@@ -30,14 +30,14 @@ internal final class EZYBottomView: UIView, EZYBottomViewProtocol {
         return bottom
     }
     
-    //MARK: - User action
+    // MARK: - User action
     
     @IBAction func seekerChanged(_ sender: UISlider) {
         delegate?.didInteracted(withWidget: true)
         delegate?.didChangedSeeker(position: sender.value)
     }
     
-    //MARK: - Update UI
+    // MARK: - Update UI
     
     func seekerCurrent(position: Float) {
         seeker.value = position
@@ -53,16 +53,16 @@ internal final class EZYBottomView: UIView, EZYBottomViewProtocol {
     /// This function takes in a total number of seconds in the form of a float, and returns a formatted time string in the form of "HH:MM:SS" or "MM:SS" depending on whether the total number of seconds is greater than or equal to one hour.
     func getTimeString(from totalSeconds: Float) -> String {
         // calculate the number of hours, minutes and seconds
-        let hh = Int(totalSeconds/3600)
-        let mm = Int(totalSeconds/60) % 60
-        let ss = Int(totalSeconds.truncatingRemainder(dividingBy: 60)) % 60
+        let hours = Int(totalSeconds/3600)
+        let minutes = Int(totalSeconds/60) % 60
+        let seconds = Int(totalSeconds.truncatingRemainder(dividingBy: 60)) % 60
         // check if the total seconds is greater than or equal to one hour
-        if hh > 0 {
+        if hours > 0 {
             // format the string to include hours if greater than or equal to one hour
-            return String(format: "%d:%02d:%02d", hh,mm,ss)
-        }else {
+            return String(format: "%d:%02d:%02d", hours, minutes, seconds)
+        } else {
             // format the string without hours if less than one hour
-            return String(format: "%02d:%02d", mm,ss)
+            return String(format: "%02d:%02d", minutes, seconds)
         }
     }
     
@@ -71,7 +71,9 @@ internal final class EZYBottomView: UIView, EZYBottomViewProtocol {
 extension EZYBottomView: EZYMenuDelegate {
     
     func addMenu() {
-        let item = PlayerMenu.allCases.map{UIMenu.forTitle($0, children: $1, delegate: self)}
+        let item = PlayerMenu.allCases.map {
+            UIMenu.forTitle($0, children: $1, delegate: self)
+        }
         let main = UIMenu(title: "", options: .displayInline, children: item)
         
         menuBtn.menu = main

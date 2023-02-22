@@ -11,7 +11,7 @@ internal final class EZYControlsView: UIView, EZYControlProtocol {
 
     @IBOutlet weak var playPauseBtn: UIButton!
     
-    weak var delegate : EZYControlActionDelegate?
+    weak var delegate: EZYControlActionDelegate?
     
     static func setup(on view: UIView) -> EZYControlProtocol {
         
@@ -25,7 +25,7 @@ internal final class EZYControlsView: UIView, EZYControlProtocol {
         return controls
     }
     
-    //MARK: - User interaction
+    // MARK: - User interaction
     
     @IBAction func playPauseTapped(_ sender: UIButton) {
         delegate?.didInteracted(withWidget: true)

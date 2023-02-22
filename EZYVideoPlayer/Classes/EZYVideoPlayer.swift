@@ -18,7 +18,7 @@ import AVKit
     private weak var avPlayerLayer: AVPlayerLayer?
     private var model: EZYVideoPlayerModelProtocol?
     
-    private weak var overlayView : EZYOverlayProtocol?
+    private weak var overlayView: EZYOverlayProtocol?
     
     public override func awakeFromNib() {
         super.awakeFromNib()
@@ -50,18 +50,18 @@ import AVKit
         model?.delegate = self
         guard let player = model?.player else {return}
         
-        let pl = AVPlayerLayer(player: player)
-        avPlayerLayer = pl
+        let playerLayer = AVPlayerLayer(player: player)
+        avPlayerLayer = playerLayer
         avPlayerLayer?.videoGravity = .resizeAspect
         avPlayerLayer?.backgroundColor = UIColor(white: 0, alpha: 1).cgColor
         
-        guard (avPlayerLayer != nil) else { return }
+        guard avPlayerLayer != nil else { return }
         layer.addSublayer(avPlayerLayer!)
     }
     
     private func setupComponents() {
-        let o = EZYOverlayView()
-        overlayView = o
+        let view = EZYOverlayView()
+        overlayView = view
         overlayView?.setup(on: self, playerModel: model, andTitle: title)
     }
     
@@ -107,5 +107,3 @@ extension EZYVideoPlayer: EZYVideoPlayerDelegate {
     }
 
 }
-
-

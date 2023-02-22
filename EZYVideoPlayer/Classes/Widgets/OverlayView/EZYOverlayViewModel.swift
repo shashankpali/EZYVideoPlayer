@@ -10,7 +10,7 @@ import AVFoundation
 
 internal final class EZYOverlayViewModel: EZYOverlayViewModelProtocol {
     
-    weak var playerModel : EZYVideoPlayerModelProtocol?
+    weak var playerModel: EZYVideoPlayerModelProtocol?
     weak var delegate: EZYOverlayProtocol?
     weak var debounceTimer: Timer?
     var isVisible = true
@@ -25,7 +25,7 @@ internal final class EZYOverlayViewModel: EZYOverlayViewModelProtocol {
     func startTimer() {
         debounceTimer?.invalidate()
         debounceTimer = nil
-        debounceTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { [weak self] timer in
+        debounceTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { [weak self] _ in
             self?.isVisible = false
             self?.delegate?.keepVisible(false)
         }
@@ -34,7 +34,7 @@ internal final class EZYOverlayViewModel: EZYOverlayViewModelProtocol {
 
 extension EZYOverlayViewModel: EZYTopActionDelegate, EZYControlActionDelegate, EZYBottomActionDelegate {
    
-    //MARK: EZYInteractionProtocol
+    // MARK: EZYInteractionProtocol
     func didInteracted(withWidget: Bool) {
         guard withWidget == false else {return startTimer()}
         isVisible = !isVisible
@@ -42,12 +42,12 @@ extension EZYOverlayViewModel: EZYTopActionDelegate, EZYControlActionDelegate, E
         delegate?.keepVisible(isVisible)
     }
     
-    //MARK: EZYTopActionDelegate
+    // MARK: EZYTopActionDelegate
     func didChangeOrientation(isLandscape: Bool) {
         playerModel?.delegate?.didChangeOrientation(isLandscape: isLandscape)
     }
     
-    //MARK: EZYControlActionProtocol
+    // MARK: EZYControlActionProtocol
     func didPrassedPlayPause() -> Bool {
         return playerModel?.isPlaying() ?? false
     }
@@ -60,7 +60,7 @@ extension EZYOverlayViewModel: EZYTopActionDelegate, EZYControlActionDelegate, E
         playerModel?.seekBackward()
     }
     
-    //MARK: EZYBottomActionDelegate
+    // MARK: EZYBottomActionDelegate
     func didSelectMenu(item: PlayerMenu) {
         playerModel?.configureAs(menuItem: item)
     }
